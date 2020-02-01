@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#CCEAFD"
     tools:context=".MainActivity">
 
 
@@ -35,7 +36,7 @@
         android:layout_width="319dp"
         android:layout_height="59dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="@string/title_name"
         android:inputType="textPersonName"
@@ -111,8 +112,8 @@
 
     <EditText
         android:id="@+id/editText7"
-        android:layout_width="273dp"
-        android:layout_height="41dp"
+        android:layout_width="300dp"
+        android:layout_height="44dp"
         android:layout_marginStart="112dp"
         android:layout_marginTop="444dp"
         android:ems="10"
@@ -128,7 +129,9 @@
         android:layout_height="76dp"
         android:layout_marginStart="204dp"
         android:layout_marginTop="636dp"
+        android:background="70FF0000"
         android:text="@string/click_save"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -137,7 +140,9 @@
         android:layout_width="206dp"
         android:layout_height="76dp"
         android:layout_marginTop="636dp"
+        android:background="70FF0000"
         android:text="@string/click_back"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -159,6 +164,22 @@
         android:text="@string/set_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="201dp"
+        android:layout_height="86dp"
+        app:srcCompat="@drawable/save_button"
+        tools:layout_editor_absoluteX="209dp"
+        tools:layout_editor_absoluteY="632dp" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="220dp"
+        android:layout_height="79dp"
+        app:srcCompat="@drawable/back_button"
+        tools:layout_editor_absoluteX="-8dp"
+        tools:layout_editor_absoluteY="636dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
