@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">Database Form</string>
 
-    <string name="no_time">0:00 AM</string>
-    <string name="no_date">January 1, 0000</string>
-    <string name="input">Input</string>
-    <string name="view">View</string>
+    <string name="title_name">Title Name</string>
+    <string name="location_name">Location</string>
+    <string name="alert_time">Add Alert</string>
+    <string name="description_text">Description</string>
+
+    <string name="start_default_time">8:00 AM</string>
+    <string name="end_default_time">9:00 AM</string>
+    <string name="no_date">Enter Date: January 1, 0000</string>
+    <string name="input">Start</string>
+    <string name="view">End</string>
 
     <string name="start">Start Time</string>
     <string name="end">End Time</string>

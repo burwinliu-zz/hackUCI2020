@@ -23,6 +23,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public Event getEvent(TimeRepresentation time){
-    }
+    //public Event getEvent(TimeRepresentation time){
+    //}
 }
