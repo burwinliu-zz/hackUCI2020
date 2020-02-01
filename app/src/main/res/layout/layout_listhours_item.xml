@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="15dp"
-    android:id = "@+id/parent_layout">
+    android:padding="15dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/hour_image"
@@ -24,14 +24,11 @@
         android:layout_marginStart="108dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="17dp"
-        android:layout_toRightOf="@+id/hour_image"
         android:text="event"
         android:textColor="#000"
         android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.333" />
+        app:layout_constraintLeft_toRightOf="@+id/hour_image"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

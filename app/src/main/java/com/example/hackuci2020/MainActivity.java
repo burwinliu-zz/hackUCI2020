@@ -23,10 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-<<<<<<< HEAD
-
-=======
->>>>>>> 7365d5cf62c3cbda6f04b78f9491e79d58bd07c0
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: started.");
@@ -42,8 +38,11 @@ public class MainActivity extends AppCompatActivity {
     }
     private void initImageBitmaps() {
         Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
-        internetURLs.add("shutterstock.com/blog/wp-content/uploads/sites/5/2019/07/Man-Silhouette.jpg");
-        Names.add("Moon");
+        internetURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/83691170_3117173931650230_3437677482822598656_n.jpg?_nc_cat=105&_nc_ohc=szftTcVtXFcAX9wGmyR&_nc_ht=scontent-lax3-1.xx&oh=1500789deabfbd5dbe65b31fd9966c31&oe=5ECE1603");
+        Names.add("Event");
+        internetURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/83289843_3117173938316896_4972520523205443584_n.jpg?_nc_cat=100&_nc_ohc=jj4BbtOI15gAX9EhJwZ&_nc_ht=scontent-lax3-1.xx&oh=0a92c3979655290ca40fcc114378dd40&oe=5ED1D783");
+        Names.add("Event");
+        internetURLs.add("");
         initRecyclerView();
 
 
