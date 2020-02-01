@@ -7,85 +7,27 @@
     tools:context=".MainActivity">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/textViews"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.591"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553">
+        app:layout_constraintVertical_bias="0.437" />
 
-        <TextView
-            android:id="@+id/date_selected"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/no_date"
-            app:layout_constraintEnd_toEndOf="@+id/time_endSelected"
-            app:layout_constraintStart_toStartOf="@+id/time_startSelected"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/time_startSelected"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/no_time"
-            android:layout_marginTop="24dp"
-            app:layout_constraintEnd_toStartOf="@+id/time_endSelected"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/date_selected"/>
-
-        <TextView
-            android:id="@+id/time_endSelected"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/no_time"
-            android:layout_marginTop="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/time_startSelected"
-            app:layout_constraintTop_toBottomOf="@id/date_selected"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/database_control"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="85dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="164dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViews">
-
-        <Button
-            android:id="@+id/viewDatabase"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/view"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/inputDatabase"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/inputDatabase"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/input"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/viewDatabase"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="225dp"
-        tools:layout_editor_absoluteY="183dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

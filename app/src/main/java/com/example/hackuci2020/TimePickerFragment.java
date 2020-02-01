@@ -56,16 +56,16 @@ public class TimePickerFragment
         start = view.findViewById(R.id.start);
         end = view.findViewById(R.id.end);
 
-        final MainActivity mainActivity = ((MainActivity) this.getActivity());
+        final EventActivity eventActivity = ((EventActivity) this.getActivity());
 
 
         // set values
         // calendar set
         // EXPLAINED TO HERE
         try {
-            dayInt = mainActivity.getDay();
-            monthInt = mainActivity.getMonth();
-            yearInt = mainActivity.getYear();
+            dayInt = eventActivity.getDay();
+            monthInt = eventActivity.getMonth();
+            yearInt = eventActivity.getYear();
 
             if(dayInt != 0 || monthInt != 0 || yearInt != 0) {
 
@@ -84,10 +84,10 @@ public class TimePickerFragment
         //time set
         try {
             String AM_PMStart, AM_PMEnd;
-            h_start = mainActivity.getHourStart();
-            h_end = mainActivity.getHourEnd();
-            m_start = mainActivity.getMinuteStart();
-            m_end = mainActivity.getMinuteEnd();
+            h_start = eventActivity.getHourStart();
+            h_end = eventActivity.getHourEnd();
+            m_start = eventActivity.getMinuteStart();
+            m_end = eventActivity.getMinuteEnd();
 
             if(h_start < 12) {
                 AM_PMStart = "AM";
@@ -107,7 +107,7 @@ public class TimePickerFragment
 
             setTime(h_start, m_start);
         }
-        catch (Exception NullPointerException){Log.e("onCreateView", "Null Time");}
+        catch (Exception NullPointerException){Log.e("onCreateView", "Null TimeRepresentation");}
         //button set
         start.setChecked(true);
         end.setChecked(false);
