@@ -1,6 +1,8 @@
 package com.example.hackuci2020;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,6 +13,8 @@ import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
+
+import com.example.hackuci2020.MapFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,10 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-<<<<<<< HEAD
-
-=======
->>>>>>> 7365d5cf62c3cbda6f04b78f9491e79d58bd07c0
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: started.");
@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, EventActivity.class));
             }
         });
+
         initImageBitmaps();
 
     }
