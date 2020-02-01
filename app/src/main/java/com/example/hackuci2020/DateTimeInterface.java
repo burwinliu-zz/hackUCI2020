@@ -18,11 +18,11 @@ public class DateTimeInterface {
         return 0;
     }
 
-    public Event getEvent(int year, int month, int day, int hour, int minute){
-        return new Event();
+    public Event getEvent(TimeRepresentation time){
+        return getEvent(time);
     }
 
-    public void getTime(int year, int month, int day, int hour, int minute){
+    public void getTime(TimeRepresentation time){
 
     }
 

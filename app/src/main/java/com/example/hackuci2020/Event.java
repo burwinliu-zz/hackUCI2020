@@ -18,14 +18,10 @@ public class Event {
     int alert_before;
     // Alert this many minutes before the event
 
-    public Event(String event_name, String event_location, int start, int end, int d, int m, int y, String event_description){
+    public Event(String event_name, String event_location, TimeRepresentation time_start,
+                 TimeRepresentation time_end, String event_description){
         name = event_name;
         location = event_location;
-        start_time = start;
-        end_time = end;
-        day = d;
-        month = m;
-        year = y;
         description = event_description;
     }
 }

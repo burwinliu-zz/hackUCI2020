@@ -22,4 +22,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+    public Event getEvent(TimeRepresentation time){
+    }
 }
