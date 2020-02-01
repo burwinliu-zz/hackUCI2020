@@ -11,14 +11,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.hackuci2020.TimePickerFragment;
+import com.example.hackuci2020.TimeRepresentation;
 
+import java.sql.Time;
 import java.util.Calendar;
 
 public class EventActivity extends AppCompatActivity implements TimePickerFragment.OnInputListener {
-    TextView dateSelected, hourStartSelected, hourEndSelected;
-    Button input, view;
+    TextView dateSelected, hourStartSelected, hourEndSelected, title, description;
+    Button input, view, setDateTime, back, submit;
     Calendar calendar = Calendar.getInstance();
     ConstraintLayout textViews;
 
@@ -42,8 +45,23 @@ public class EventActivity extends AppCompatActivity implements TimePickerFragme
         hourEndSelected = findViewById(R.id.time_endSelected);
 
         textViews = findViewById(R.id.textViews);
+        title = findViewById(R.id.titleInput);
+        description = findViewById(R.id.editText7);
 
-        textViews.setOnClickListener(new View.OnClickListener() {
+        submit = findViewById(R.id.save_button);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimeRepresentation start = new TimeRepresentation(minute_start, hour_start, day, month, year);
+                TimeRepresentation end = new TimeRepresentation(minute_end, hour_end, day, month, year);
+
+                Event new_event = new Event(title.getText().toString(), "event_location",
+                        0, 0, start, end, description.getText().toString());
+            }
+        });
+
+        setDateTime = findViewById(R.id.date_Delete);
+        setDateTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TimePickerFragment dialog = new TimePickerFragment();
