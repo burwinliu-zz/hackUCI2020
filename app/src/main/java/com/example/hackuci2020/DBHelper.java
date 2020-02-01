@@ -13,15 +13,22 @@ import android.database.sqlite.SQLiteOpenHelper;
         public static final String TABLE_TIME = "time_table";
         public static final String TABLE_LOCATION = "location_table";
         public static final String TABLE_EVENT = "event_table";
-        public static final String COLUMN_NAME_UNIQUE_LOCATION_ID = "counter";
 
+        // Location table
+        public static final String COLUMN_NAME_UNIQUE_LOCATION_ID = "counter";
+        public static final String COLUMN_NAME_LONGITUTD = "longitude";
+        public static final String COLUMN_NAME_LATITUDE = "latitude";
+
+        // Time table
+        public static final String COLUMN_NAME_UNIQUE_TIME_ID = "counter";
         public static final String COLUMN_NAME_MINUTE = "minute";
         public static final String COLUMN_NAME_HOUR = "hour";
         public static final String COLUMN_NAME_DAY = "day";
         public static final String COLUMN_NAME_MONTH = "month";
         public static final String COLUMN_NAME_YEAR = "year";
-        public static final String COLUMN_NAME_UNIQUE_TIME_ID = "counter";
 
+
+        // Event table
         public static final String COLUMN_NAME_START_ID = "start_time";
         public static final String COLUMN_NAME_END_ID = "end_time";
         public static final String COLUMN_NAME_TITLE = "title";
@@ -38,7 +45,29 @@ import android.database.sqlite.SQLiteOpenHelper;
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
+        String CREATE_POSTS_TABLE = "CREATE TABLE " + TABLE_TIME +
+                "(" +
+                KEY_POST_ID + " INTEGER PRIMARY KEY," + // Define a primary key
+                KEY_POST_USER_ID_FK + " INTEGER REFERENCES " + TABLE_USERS + "," + // Define a foreign key
+                KEY_POST_TEXT + " TEXT" +
+                ")";
 
+        String CREATE_USERS_TABLE = "CREATE TABLE " + TABLE_LOCATION +
+                "(" +
+                KEY_USER_ID + " INTEGER PRIMARY KEY," +
+                KEY_USER_NAME + " TEXT," +
+                KEY_USER_PROFILE_PICTURE_URL + " TEXT" +
+                ")";
+
+        String CREATE_USERS_TABLE = "CREATE TABLE " + TABLE_EVENT +
+                "(" +
+                KEY_USER_ID + " INTEGER PRIMARY KEY," +
+                KEY_USER_NAME + " TEXT," +
+                KEY_USER_PROFILE_PICTURE_URL + " TEXT" +
+                ")";
+
+        db.execSQL(CREATE_POSTS_TABLE);
+        db.execSQL(CREATE_USERS_TABLE);
     }
 
     @Override
