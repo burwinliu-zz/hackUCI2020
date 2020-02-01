@@ -60,8 +60,16 @@ public class DBHelper extends SQLiteOpenHelper {
                 "(" +
                     COLUMN_NAME_UNIQUE_LOCATION_ID + " INTEGER PRIMARY KEY," +
                     COLUMN_NAME_ADDRESS+ " TEXT," +
+
+
+                    COLUMN_NAME_LONGITUDE + " DOBULE(10,5)," +
+
+                COLUMN_NAME_LONGITUDE + " DOBULE(10,5)," +
+
+
                     COLUMN_NAME_LONGITUDE + " DOBULE(10,5)," +
                      COLUMN_NAME_LONGITUDE + " DOBULE(10,5)," +
+
                     COLUMN_NAME_LATITUDE + " DOBULE(10,5)" +
                 ")";
 
@@ -96,4 +104,5 @@ public class DBHelper extends SQLiteOpenHelper {
             onCreate(db);
         }
     }
+
 }
