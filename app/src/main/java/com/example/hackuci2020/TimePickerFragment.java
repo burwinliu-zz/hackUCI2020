@@ -107,7 +107,7 @@ public class TimePickerFragment
 
             setTime(h_start, m_start);
         }
-        catch (Exception NullPointerException){Log.e("onCreateView", "Null Time");}
+        catch (Exception NullPointerException){Log.e("onCreateView", "Null TimeRepresentation");}
         //button set
         start.setChecked(true);
         end.setChecked(false);
