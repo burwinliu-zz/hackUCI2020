@@ -64,9 +64,8 @@ public class EventActivity extends AppCompatActivity implements TimePickerFragme
             public void onClick(View v) {
                 TimeRepresentation start = new TimeRepresentation(minute_start, hour_start, day, month, year);
                 TimeRepresentation end = new TimeRepresentation(minute_end, hour_end, day, month, year);
-
-                Event new_event = new Event(title.getText().toString(), "event_location",
-                        0, 0, start, end, description.getText().toString());
+//                Event new_event = new Event(title.getText().toString(), "event_location",
+//                        0, 0, start, end, description.getText().toString());
             }
         });
 

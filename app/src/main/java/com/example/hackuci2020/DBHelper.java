@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-    public class DBHelper extends SQLiteOpenHelper {
+public class DBHelper extends SQLiteOpenHelper {
 
         public static final int DATABASE_VERSION = 1;
         public static final String DATABASE_NAME = "calendar_event.db";
@@ -16,8 +16,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
         // Location table
         public static final String COLUMN_NAME_UNIQUE_LOCATION_ID = "location_id";
-        public static final String COLUMN_NAME_LONGITUTD = "longitude";
+        public static final String COLUMN_NAME_LONGITUDE = "longitude";
         public static final String COLUMN_NAME_LATITUDE = "latitude";
+        public static final String COLUMN_NAME_ADDRESS = "address";
 
         // Time table
         public static final String COLUMN_NAME_UNIQUE_TIME_ID = "time_id";
@@ -58,15 +59,25 @@ import android.database.sqlite.SQLiteOpenHelper;
         String CREATE_LOCATION_TABLE = "CREATE TABLE " + TABLE_LOCATION +
                 "(" +
                     COLUMN_NAME_UNIQUE_LOCATION_ID + " INTEGER PRIMARY KEY," +
-                    COLUMN_NAME_LONGITUTD + " DOBULE(10,5)," +
+                    COLUMN_NAME_ADDRESS+ " TEXT," +
+                COLUMN_NAME_LONGITUDE + " DOBULE(10,5)," +
                     COLUMN_NAME_LATITUDE + " DOBULE(10,5)" +
                 ")";
 
         String CREATE_EVENT_TABLE = "CREATE TABLE " + TABLE_EVENT +
                 "(" +
-//                KEY_USER_ID + " INTEGER PRIMARY KEY," +
-//                KEY_USER_NAME + " TEXT," +
-//                KEY_USER_PROFILE_PICTURE_URL + " TEXT" +
+                    COLUMN_NAME_TITLE + " TEXT," +
+                    COLUMN_NAME_TRAVELTYPE+ " INT," +
+                    COLUMN_NAME_DESCRIPTION+ " TEXT," +
+
+                    "FOREIGN KEY ("+ COLUMN_NAME_LOCATION_ID + ") REFERENCES " +
+                        TABLE_LOCATION + "(" + COLUMN_NAME_UNIQUE_LOCATION_ID + ")," +
+                    "FOREIGN KEY ("+ COLUMN_NAME_ALERT_ID + ") REFERENCES " +
+                        TABLE_TIME + "(" + COLUMN_NAME_UNIQUE_TIME_ID + ")," +
+                    "FOREIGN KEY ("+ COLUMN_NAME_END_ID + ") REFERENCES " +
+                        TABLE_TIME + "(" + COLUMN_NAME_UNIQUE_TIME_ID + ")," +
+                    "FOREIGN KEY ("+ COLUMN_NAME_START_ID + ") REFERENCES " +
+                        TABLE_TIME + "(" + COLUMN_NAME_UNIQUE_TIME_ID + ")" +
                 ")";
 
         db.execSQL(CREATE_TIME_TABLE);
@@ -76,8 +87,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        if (oldVersion != newVersion) {
+            // Simplest implementation is to drop all old tables and recreate them
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_TIME);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_LOCATION);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_EVENT);
+            onCreate(db);
+        }
     }
-
-//    public Event getEvent(TimeRepresentation time){
-//    }
 }
