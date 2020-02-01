@@ -23,7 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7365d5cf62c3cbda6f04b78f9491e79d58bd07c0
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: started.");
