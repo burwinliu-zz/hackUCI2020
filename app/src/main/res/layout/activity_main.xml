@@ -6,9 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-<<<<<<< HEAD
-</RelativeLayout>
-=======
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recylerview"
@@ -31,4 +29,3 @@
         app:layout_constraintVertical_bias="0.926" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
->>>>>>> 35900f1e721d442366dfde07fcda6e566c2ebf16
