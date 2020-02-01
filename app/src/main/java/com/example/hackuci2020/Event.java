@@ -11,11 +11,12 @@ public class Event {
 
     private TimeRepresentation start_time, end_time;
 
-    int alert_before;
+    //travel type -- int. 0 == driving, 1 == walking, 2 == transit
+    private int alert_before, travel_type;
     // Alert this many minutes before the event
 
     public Event(String event_name, String event_location, float longi, float lati, TimeRepresentation time_start,
-                 TimeRepresentation time_end, String event_description){
+                 TimeRepresentation time_end, String event_description, int travel){
         name = event_name;
         location = event_location;
         longitude = longi;
@@ -23,8 +24,12 @@ public class Event {
         description = event_description;
         start_time = time_start;
         end_time = time_end;
+        travel_type = travel;
     }
 
+    public int getTravel(){
+        return travel_type;
+    }
     public String getName() {return name;}
     public String getLocation() {return location;}
     public float getLongitude() {return longitude;}
@@ -38,5 +43,8 @@ public class Event {
     public void setLongitude(float new_long) {longitude = new_long;}
     public void setLatitude(float new_lat) {latitude = new_lat;}
     public void setDescription(String desc) {description = desc;}
+    public void setTravelType(int travelType) {
+        travel_type = travelType;
+    }
 
 }

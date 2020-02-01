@@ -1,4 +1,19 @@
 <resources>
+    <string-array name="Alerts">
+        <item>5 Min Before Departure</item>
+        <item>10 Min Before Departure</item>
+        <item>15 Min Before Departure</item>
+        <item>20 Min Before Departure</item>
+        <item>25 Min Before Departure</item>
+        <item>30 Min Before Departure</item>
+        <item>35 Min Before Departure</item>
+        <item>40 Min Before Departure</item>
+        <item>45 Min Before Departure</item>
+        <item>50 Min Before Departure</item>
+        <item>55 Min Before Departure</item>
+        <item>1 Hour Before Departure</item>
+    </string-array>
+
     <string name="app_name">Database Form</string>
 
     <string name="title_name">Title Name</string>

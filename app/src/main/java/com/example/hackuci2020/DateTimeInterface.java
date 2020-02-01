@@ -21,11 +21,26 @@ public class DateTimeInterface {
         return 0;
     }
 
-    public Event getEvent(TimeRepresentation time){
-        return getEvent(time);
-    }
+//    public Event getEvent(TimeRepresentation time){
+//        return getEvent(time);
+//    }
 
-    public void getTime(TimeRepresentation time){
+//    public TimeRepresentation getAlertTime(TimeRepresentation time){
+//        /*
+//            TimeRepresentation time is start time
+//        */
+//
+//    }
+//
+//    public Event updateAlertTime(TimeRepresentation time){
+//        /*
+//            TimeRepresentation time is start time
+//        */
+//
+//    }
+
+    public int getTime(double startLong, double startLat, double endLong, int endLat){
+        return 0;
     }
 
 }

@@ -8,7 +8,9 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -16,12 +18,14 @@ import android.widget.Toast;
 import com.example.hackuci2020.TimePickerFragment;
 import com.example.hackuci2020.TimeRepresentation;
 
+import java.sql.Array;
 import java.sql.Time;
 import java.util.Calendar;
 
 public class EventActivity extends AppCompatActivity implements TimePickerFragment.OnInputListener {
     TextView dateSelected, hourStartSelected, hourEndSelected, title, description;
     Button input, view, setDateTime, back, submit;
+    Spinner alert;
     Calendar calendar = Calendar.getInstance();
     ConstraintLayout textViews;
 
@@ -48,15 +52,20 @@ public class EventActivity extends AppCompatActivity implements TimePickerFragme
         title = findViewById(R.id.titleInput);
         description = findViewById(R.id.editText7);
 
+        alert = findViewById(R.id.alert_dropdown);
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(EventActivity.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Alerts));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        alert.setAdapter(myAdapter);
+
         submit = findViewById(R.id.save_button);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TimeRepresentation start = new TimeRepresentation(minute_start, hour_start, day, month, year);
                 TimeRepresentation end = new TimeRepresentation(minute_end, hour_end, day, month, year);
-
-                Event new_event = new Event(title.getText().toString(), "event_location",
-                        0, 0, start, end, description.getText().toString());
+//                Event new_event = new Event(title.getText().toString(), "event_location",
+//                        0, 0, start, end, description.getText().toString());
             }
         });
 

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-    public class DBHelper extends SQLiteOpenHelper {
+public class DBHelper extends SQLiteOpenHelper {
 
         public static final int DATABASE_VERSION = 1;
         public static final String DATABASE_NAME = "calendar_event.db";
@@ -16,7 +16,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
         // Location table
         public static final String COLUMN_NAME_UNIQUE_LOCATION_ID = "location_id";
-        public static final String COLUMN_NAME_LONGITUTD = "longitude";
+        public static final String COLUMN_NAME_LONGITUDE = "longitude";
         public static final String COLUMN_NAME_LATITUDE = "latitude";
         public static final String COLUMN_NAME_ADDRESS = "address";
 
@@ -60,7 +60,11 @@ import android.database.sqlite.SQLiteOpenHelper;
                 "(" +
                     COLUMN_NAME_UNIQUE_LOCATION_ID + " INTEGER PRIMARY KEY," +
                     COLUMN_NAME_ADDRESS+ " TEXT," +
+<<<<<<< HEAD
                     COLUMN_NAME_LONGITUTD + " DOBULE(10,5)," +
+=======
+                COLUMN_NAME_LONGITUDE + " DOBULE(10,5)," +
+>>>>>>> 35900f1e721d442366dfde07fcda6e566c2ebf16
                     COLUMN_NAME_LATITUDE + " DOBULE(10,5)" +
                 ")";
 
@@ -95,6 +99,9 @@ import android.database.sqlite.SQLiteOpenHelper;
             onCreate(db);
         }
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 35900f1e721d442366dfde07fcda6e566c2ebf16
 }
