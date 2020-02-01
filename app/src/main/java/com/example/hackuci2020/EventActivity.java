@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ import java.util.Calendar;
 public class EventActivity extends AppCompatActivity implements TimePickerFragment.OnInputListener {
     TextView dateSelected, hourStartSelected, hourEndSelected, title, description;
     Button input, view, setDateTime, back, submit;
+    Spinner alert;
     Calendar calendar = Calendar.getInstance();
     ConstraintLayout textViews;
 
@@ -47,6 +49,8 @@ public class EventActivity extends AppCompatActivity implements TimePickerFragme
         textViews = findViewById(R.id.textViews);
         title = findViewById(R.id.titleInput);
         description = findViewById(R.id.editText7);
+
+        alert = findViewById(R.id.alert_dropdown);
 
         submit = findViewById(R.id.save_button);
         submit.setOnClickListener(new View.OnClickListener() {
