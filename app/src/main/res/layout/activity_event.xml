@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FCD8E8"
     tools:context=".MainActivity">
 
 
@@ -36,31 +37,11 @@
         android:layout_width="319dp"
         android:layout_height="59dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="@string/title_name"
         android:inputType="textPersonName"
         android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/inputDatabase"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="204dp"
-        android:text="@string/input"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/viewDatabase"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="272dp"
-        android:text="@string/view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,7 +60,7 @@
         android:id="@+id/time_endSelected"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="296dp"
+        android:layout_marginStart="284dp"
         android:layout_marginTop="272dp"
         android:text="@string/end_default_time"
         android:textSize="24sp"
@@ -100,8 +81,8 @@
 
     <EditText
         android:id="@+id/editText7"
-        android:layout_width="273dp"
-        android:layout_height="41dp"
+        android:layout_width="300dp"
+        android:layout_height="44dp"
         android:layout_marginStart="112dp"
         android:layout_marginTop="444dp"
         android:ems="10"
@@ -117,7 +98,9 @@
         android:layout_height="76dp"
         android:layout_marginStart="204dp"
         android:layout_marginTop="636dp"
+        android:color="#FFFFFF"
         android:text="@string/click_save"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -126,7 +109,13 @@
         android:layout_width="206dp"
         android:layout_height="76dp"
         android:layout_marginTop="636dp"
+
+
+
+        android:color="#FFFFFF"
+
         android:text="@string/click_back"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -148,6 +137,34 @@
         android:text="@string/set_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="201dp"
+        android:layout_height="86dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.995"
+        app:layout_constraintStart_toEndOf="@+id/save_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alert_dropdown"
+        app:layout_constraintVertical_bias="0.902"
+        app:srcCompat="@drawable/save_button" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="220dp"
+        android:layout_height="79dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView6"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.975"
+        app:srcCompat="@drawable/back_button" />
+
 
     <Spinner
         android:id="@+id/alert_dropdown"

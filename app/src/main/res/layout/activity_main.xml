@@ -7,10 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 9ad910b9d5131b92bdc7b7ad15ca45c6d89f80e9
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recylerview"
-        android:layout_width="174dp"
-        android:layout_height="0dp"
+        android:layout_width="401dp"
+        android:layout_height="592dp"
         android:layout_marginTop="124dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,3 +33,7 @@
         app:layout_constraintVertical_bias="0.926" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 9ad910b9d5131b92bdc7b7ad15ca45c6d89f80e9
