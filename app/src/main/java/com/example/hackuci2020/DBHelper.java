@@ -15,12 +15,12 @@ import android.database.sqlite.SQLiteOpenHelper;
         public static final String TABLE_EVENT = "event_table";
 
         // Location table
-        public static final String COLUMN_NAME_UNIQUE_LOCATION_ID = "counter";
+        public static final String COLUMN_NAME_UNIQUE_LOCATION_ID = "location_id";
         public static final String COLUMN_NAME_LONGITUTD = "longitude";
         public static final String COLUMN_NAME_LATITUDE = "latitude";
 
         // Time table
-        public static final String COLUMN_NAME_UNIQUE_TIME_ID = "counter";
+        public static final String COLUMN_NAME_UNIQUE_TIME_ID = "time_id";
         public static final String COLUMN_NAME_MINUTE = "minute";
         public static final String COLUMN_NAME_HOUR = "hour";
         public static final String COLUMN_NAME_DAY = "day";
@@ -45,29 +45,33 @@ import android.database.sqlite.SQLiteOpenHelper;
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_POSTS_TABLE = "CREATE TABLE " + TABLE_TIME +
+        String CREATE_TIME_TABLE = "CREATE TABLE " + TABLE_TIME +
                 "(" +
-                KEY_POST_ID + " INTEGER PRIMARY KEY," + // Define a primary key
-                KEY_POST_USER_ID_FK + " INTEGER REFERENCES " + TABLE_USERS + "," + // Define a foreign key
-                KEY_POST_TEXT + " TEXT" +
+                    COLUMN_NAME_UNIQUE_TIME_ID + " INTEGER PRIMARY KEY," +
+                    COLUMN_NAME_MINUTE + " INTEGER ," +
+                    COLUMN_NAME_HOUR + " INTEGER ," +
+                    COLUMN_NAME_DAY + " INTEGER ," +
+                    COLUMN_NAME_MONTH + " INTEGER ," +
+                    COLUMN_NAME_YEAR + " INTEGER "+
                 ")";
 
-        String CREATE_USERS_TABLE = "CREATE TABLE " + TABLE_LOCATION +
+        String CREATE_LOCATION_TABLE = "CREATE TABLE " + TABLE_LOCATION +
                 "(" +
-                KEY_USER_ID + " INTEGER PRIMARY KEY," +
-                KEY_USER_NAME + " TEXT," +
-                KEY_USER_PROFILE_PICTURE_URL + " TEXT" +
+                    COLUMN_NAME_UNIQUE_LOCATION_ID + " INTEGER PRIMARY KEY," +
+                    COLUMN_NAME_LONGITUTD + " DOBULE(10,5)," +
+                    COLUMN_NAME_LATITUDE + " DOBULE(10,5)" +
                 ")";
 
-        String CREATE_USERS_TABLE = "CREATE TABLE " + TABLE_EVENT +
+        String CREATE_EVENT_TABLE = "CREATE TABLE " + TABLE_EVENT +
                 "(" +
-                KEY_USER_ID + " INTEGER PRIMARY KEY," +
-                KEY_USER_NAME + " TEXT," +
-                KEY_USER_PROFILE_PICTURE_URL + " TEXT" +
+//                KEY_USER_ID + " INTEGER PRIMARY KEY," +
+//                KEY_USER_NAME + " TEXT," +
+//                KEY_USER_PROFILE_PICTURE_URL + " TEXT" +
                 ")";
 
-        db.execSQL(CREATE_POSTS_TABLE);
-        db.execSQL(CREATE_USERS_TABLE);
+        db.execSQL(CREATE_TIME_TABLE);
+        db.execSQL(CREATE_LOCATION_TABLE);
+        db.execSQL(CREATE_EVENT_TABLE);
     }
 
     @Override
