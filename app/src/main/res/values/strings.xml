@@ -5,12 +5,15 @@
     <string name="location_name">Location</string>
     <string name="alert_time">Add Alert</string>
     <string name="description_text">Description</string>
+    <string name="set_date">Set Date</string>
+    <string name="click_save">Save</string>
+    <string name="click_back">Back</string>
 
     <string name="start_default_time">8:00 AM</string>
     <string name="end_default_time">9:00 AM</string>
-    <string name="no_date">Enter Date: January 1, 0000</string>
-    <string name="input">Start</string>
-    <string name="view">End</string>
+    <string name="no_date">January 1, 0000</string>
+    <string name="input">Start Time</string>
+    <string name="view">End Time</string>
 
     <string name="start">Start Time</string>
     <string name="end">End Time</string>
