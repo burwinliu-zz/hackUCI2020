@@ -8,6 +8,7 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import com.example.hackuci2020.TimePickerFragment;
 import com.example.hackuci2020.TimeRepresentation;
 
+import java.sql.Array;
 import java.sql.Time;
 import java.util.Calendar;
 
@@ -51,6 +53,10 @@ public class EventActivity extends AppCompatActivity implements TimePickerFragme
         description = findViewById(R.id.editText7);
 
         alert = findViewById(R.id.alert_dropdown);
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(EventActivity.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Alerts));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        alert.setAdapter(myAdapter);
 
         submit = findViewById(R.id.save_button);
         submit.setOnClickListener(new View.OnClickListener() {
