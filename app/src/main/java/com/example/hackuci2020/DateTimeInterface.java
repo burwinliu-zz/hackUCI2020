@@ -3,7 +3,7 @@ package com.example.hackuci2020;
 import com.example.hackuci2020.DBHelper;
 import com.example.hackuci2020.Event;
 
-public class DateTimeInterface implements {
+public class DateTimeInterface {
     public DateTimeInterface(){
     }
 
