@@ -1,27 +1,42 @@
 package com.example.hackuci2020;
 
+import com.example.hackuci2020.TimeRepresentation;
+
 public class Event {
 
-    String name;
-    String location;
+    private String name, location, description;
     // Location based off of google map widget
 
-    int start_time;
-    // out of 2400. 1200 is 12:00 PM
-    int end_time;
+    private float longitude, latitude;
 
-    int day;
-    int month;
-    int year;
-    String description;
+    private TimeRepresentation start_time, end_time;
 
     int alert_before;
     // Alert this many minutes before the event
 
-    public Event(String event_name, String event_location, TimeRepresentation time_start,
+    public Event(String event_name, String event_location, float longi, float lati, TimeRepresentation time_start,
                  TimeRepresentation time_end, String event_description){
         name = event_name;
         location = event_location;
+        longitude = longi;
+        latitude = lati;
         description = event_description;
+        start_time = time_start;
+        end_time = time_end;
     }
+
+    public String getName() {return name;}
+    public String getLocation() {return location;}
+    public float getLongitude() {return longitude;}
+    public float getLatitude() {return latitude;}
+    public String getDescription() {return description;}
+    public TimeRepresentation getStartTime() {return start_time;}
+    public TimeRepresentation getEndTime() {return end_time;}
+
+    public void setName(String nam) {name = nam;}
+    public void setLocation(String loc) {location = loc;}
+    public void setLongitude(float new_long) {longitude = new_long;}
+    public void setLatitude(float new_lat) {latitude = new_lat;}
+    public void setDescription(String desc) {description = desc;}
+
 }
