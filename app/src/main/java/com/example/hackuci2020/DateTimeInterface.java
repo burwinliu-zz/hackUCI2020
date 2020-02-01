@@ -1,7 +1,10 @@
 package com.example.hackuci2020;
 
+import android.util.Log;
+
 import com.example.hackuci2020.DBHelper;
 import com.example.hackuci2020.Event;
+
 
 public class DateTimeInterface {
     public interface AlertModifier{
@@ -23,7 +26,6 @@ public class DateTimeInterface {
     }
 
     public void getTime(TimeRepresentation time){
-
     }
 
 }

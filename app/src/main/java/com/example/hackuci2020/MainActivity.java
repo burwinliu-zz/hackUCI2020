@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("TESTING_KEY", BuildConfig.bingAPIKey);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
