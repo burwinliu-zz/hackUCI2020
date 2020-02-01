@@ -7,7 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9ad910b9d5131b92bdc7b7ad15ca45c6d89f80e9
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recylerview"
@@ -30,4 +33,7 @@
         app:layout_constraintVertical_bias="0.926" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9ad910b9d5131b92bdc7b7ad15ca45c6d89f80e9
