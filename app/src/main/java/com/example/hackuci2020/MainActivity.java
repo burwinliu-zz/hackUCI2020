@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements TimePickerFragmen
             @Override
             public void onClick(View v) {
                 TimePickerFragment dialog = new TimePickerFragment();
-                dialog.show(getSupportFragmentManager(), "TimeFragmentManager");
+                dialog.show(getSupportFragmentManager(), "TimePickerFragmentManager");
 
             }
         });
