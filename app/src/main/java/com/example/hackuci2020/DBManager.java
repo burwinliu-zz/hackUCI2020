@@ -217,7 +217,11 @@ public class DBManager {
         Cursor cursor = null;
         try {
             cursor = database.rawQuery(
-                    "SELECT " + DBHelper.COLUMN_NAME_HOUR + " , " + DBHelper.COLUMN_NAME_MINUTE +
+                    "SELECT " + DBHelper.COLUMN_NAME_HOUR +
+                            " , " + DBHelper.COLUMN_NAME_MINUTE +
+                            " , " + DBHelper.COLUMN_NAME_DAY +
+                            " , " + DBHelper.COLUMN_NAME_MONTH +
+                            " , " + DBHelper.COLUMN_NAME_YEAR +
                             " FROM " + DBHelper.TABLE_TIME +
                             " WHERE " + DBHelper.COLUMN_NAME_DAY + " =? AND " +
                             DBHelper.COLUMN_NAME_MONTH + " =? AND " +
