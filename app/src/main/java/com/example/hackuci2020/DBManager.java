@@ -54,7 +54,8 @@ public class DBManager {
                 DBHelper.COLUMN_NAME_HOUR,
                 DBHelper.COLUMN_NAME_DAY,
                 DBHelper.COLUMN_NAME_MONTH,
-                DBHelper.COLUMN_NAME_YEAR
+                DBHelper.COLUMN_NAME_YEAR,
+                DBHelper.COLUMN_NAME_UNIQUE_TIME_ID
         };
         String selection =
                 DBHelper.COLUMN_NAME_MINUTE + " =? AND " +
@@ -76,22 +77,34 @@ public class DBManager {
             cursor = database.query(DBHelper.TABLE_TIME, columns, selection,
                     selectionArgs, null, null, null, null);
             cursor.moveToFirst();
-            while (cursor.moveToNext()) {
-                if (valueExistsStart(cursor.getColumnIndex(DBHelper.COLUMN_NAME_UNIQUE_TIME_ID))) {
+            do {
+                if (valueExistsStart(cursor.getInt(
+                        cursor.getColumnIndex(DBHelper.COLUMN_NAME_UNIQUE_TIME_ID)))) {
+                    Log.d("Manager", "Inside");
                     String[] col = {
-                            DBHelper.COLUMN_NAME_UNIQUE_TIME_ID
+                            DBHelper.COLUMN_NAME_START_ID,
+                            DBHelper.COLUMN_NAME_END_ID,
+                            DBHelper.COLUMN_NAME_TITLE,
+                            DBHelper.COLUMN_NAME_TRAVELTYPE,
+                            DBHelper.COLUMN_NAME_DESCRIPTION,
+                            DBHelper.COLUMN_NAME_LOCATION_ID,
+                            DBHelper.COLUMN_NAME_ALERT_ID
                     };
-                    String sel = DBHelper.COLUMN_NAME_UNIQUE_TIME_ID + " =?";
-                    String arg =
-                            Integer.toString(cursor.getColumnIndex(DBHelper.COLUMN_NAME_UNIQUE_TIME_ID));
-                    cursor1 = database.query(DBHelper.TABLE_TIME, columns, selection,
-                            selectionArgs, null, null, null, null);
+                    String sel = DBHelper.COLUMN_NAME_START_ID + " =?";
+                    String[] arg = {
+                            Integer.toString(cursor.getColumnIndex(DBHelper.COLUMN_NAME_UNIQUE_TIME_ID))
+                    };
+//                    cursor1 = database.query(DBHelper.TABLE_EVENT, col, sel,
+//                            arg, null, null, null, null);
+                    cursor1 = database.rawQuery("SELECT * FROM " + DBHelper.TABLE_EVENT, null);
                     cursor1.moveToFirst();
+                    Log.d("Manager", "cursor1 past");
                     if(cursor1.moveToNext()) {
+                        Log.d("Manager", "moved past");
                         TimeRepresentation start = getTime(cursor1.getInt(cursor1.getColumnIndex(DBHelper.COLUMN_NAME_START_ID)));
                         TimeRepresentation end = getTime(cursor1.getInt(cursor1.getColumnIndex(DBHelper.COLUMN_NAME_END_ID)));
                         Location location = getLocation(cursor1.getInt(cursor1.getColumnIndex(DBHelper.COLUMN_NAME_LOCATION_ID)));
-
+                        Log.d("Manager", "IN past");
                         return new Event(
                                 cursor1.getString(cursor1.getColumnIndex(DBHelper.COLUMN_NAME_TITLE)),
                                 location,
@@ -102,7 +115,7 @@ public class DBManager {
                         );
                     }
                 }
-            }
+            }while (cursor.moveToNext());
         }finally {
             if(cursor != null && !cursor.isClosed())
                 cursor.close();
@@ -138,16 +151,28 @@ public class DBManager {
 
     //todo test
     public TimeRepresentation getTime(int unique_id){
-        String[] columns = { DBHelper.COLUMN_NAME_UNIQUE_TIME_ID };
+        String[] columns = {
+                DBHelper.COLUMN_NAME_UNIQUE_TIME_ID,
+                DBHelper.COLUMN_NAME_HOUR,
+                DBHelper.COLUMN_NAME_MINUTE,
+                DBHelper.COLUMN_NAME_DAY,
+                DBHelper.COLUMN_NAME_MONTH,
+                DBHelper.COLUMN_NAME_YEAR
+        };
         String selection = DBHelper.COLUMN_NAME_UNIQUE_TIME_ID + " =?";
         String[] selectionArgs = { Integer.toString(unique_id) };
-        String limit = "1";
 
         Cursor cursor = null;
         try {
-            cursor = database.query(DBHelper.TABLE_LOCATION, columns, selection,
-                    selectionArgs, null, null, null, limit);
-
+            cursor = database.query(DBHelper.TABLE_TIME, columns, selection,
+                    selectionArgs, null, null, null, null);
+            for(String s: cursor.getColumnNames())
+                Log.d("Cursor", s);
+            Log.d("Cursor1", Integer.toString(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_NAME_MINUTE))));
+            Log.d("Cursor1", Integer.toString(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_NAME_HOUR))));
+            Log.d("Cursor1", Integer.toString(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_NAME_DAY))));
+            Log.d("Cursor1", Integer.toString(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_NAME_MONTH))));
+            Log.d("Cursor1", Integer.toString(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_NAME_YEAR))));
             return new TimeRepresentation(
                     cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_NAME_MINUTE)),
                     cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_NAME_HOUR)),
@@ -323,7 +348,7 @@ public class DBManager {
                 insertLocation(database, event.getLongitude(), event.getLatitude(), event.getLocation()));
         contentValue.put(DBHelper.COLUMN_NAME_ALERT_ID, notification);
 
-        database.insert(DBHelper.TABLE_EVENT, null, contentValue);
+        database.insert(DBHelper.TABLE_EVENT, "0", contentValue);
     }
 
     //todo test, dev seems good

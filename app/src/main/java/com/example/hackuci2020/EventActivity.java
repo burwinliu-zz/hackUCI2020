@@ -70,13 +70,13 @@ public class EventActivity extends AppCompatActivity implements TimePickerFragme
                 Event new_event = new Event(title.getText().toString(), new Location(0, 0, "event_location"), start, end, description.getText().toString(), 0);
                 //DBManager.insertEvent(new_event)
                 //takes all info and puts it out into something
-                Log.d("TEST", new_event.getLocation());
 //                inputListener.saveEvent(new_event);
 
                 DBManager dbmanager = new DBManager(getApplicationContext());
                 dbmanager.open();
                 dbmanager.insertEvent(new_event);
-//                Log.d("DATABASE", dbmanager.getEvent())
+                if (dbmanager.getEvent(start) != null)
+                    Log.d("DATABASE", Integer.toString(dbmanager.getEvent(start).getEndTime().getHour()));
                 dbmanager.close();
 
                 startActivity(new Intent(EventActivity.this, MainActivity.class));
