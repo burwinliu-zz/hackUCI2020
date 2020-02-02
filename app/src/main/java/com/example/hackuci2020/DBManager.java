@@ -57,10 +57,10 @@ public class DBManager {
                 DBHelper.COLUMN_NAME_YEAR
         };
         String selection =
-                DBHelper.COLUMN_NAME_MINUTE + " =? AND" +
-                DBHelper.COLUMN_NAME_HOUR + " =? AND" +
-                DBHelper.COLUMN_NAME_DAY + " =? AND" +
-                DBHelper.COLUMN_NAME_MONTH + " =? AND" +
+                DBHelper.COLUMN_NAME_MINUTE + " =? AND " +
+                DBHelper.COLUMN_NAME_HOUR + " =? AND " +
+                DBHelper.COLUMN_NAME_DAY + " =? AND " +
+                DBHelper.COLUMN_NAME_MONTH + " =? AND " +
                 DBHelper.COLUMN_NAME_YEAR + " =?";
         String[] selectionArgs = {
                 Integer.toString(time.getMinute()),
