@@ -39,8 +39,4 @@ public class DateTimeInterface {
 //
 //    }
 
-    public int getTime(double startLong, double startLat, double endLong, int endLat){
-        return 0;
-    }
-
 }

@@ -32,7 +32,7 @@ public class DBManager {
 //
 //    }
 //
-//    private int[] getTimeID(SQLiteDatabase db, TimeRepresentation time){
+//    private ArrayList<Integer> getTimeID(SQLiteDatabase db, TimeRepresentation time){
 //        String table = DBHelper.TABLE_TIME;
 //        String[] columns = {DBHelper.COLUMN_NAME_UNIQUE_TIME_ID};
 //        String selection = DBHelper.COLUMN_NAME_MINUTE + " =? AND "
@@ -62,6 +62,8 @@ public class DBManager {
 //                cursor.close();
 //            }
 //        }
+//
+//        return result;
 //    }
 //
 //    public void insertEvent(SQLiteDatabase db, Event event){
