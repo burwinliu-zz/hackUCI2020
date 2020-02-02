@@ -41,6 +41,4 @@ public class FauxDB {
     public Location location3(){
         return new Location( (float) 33.691254, (float) -117.888899, "South Coast Plaza, CA");
     }
-
-
 }

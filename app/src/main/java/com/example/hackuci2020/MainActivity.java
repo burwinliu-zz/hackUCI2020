@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity{
     private ArrayList<String> internetURLs = new ArrayList<>();
 
 
+    private int version;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,23 @@ public class MainActivity extends AppCompatActivity{
         initImageBitmaps();
         db.close();
 
+        version = 0;
+
+    }
+
+    @Override
+    public void startActivity(Intent intent){
+        super.startActivity(intent);
+        if(version == 0) {
+            version = 1;
+            Log.d("activity" , "Good log");
+        }
+        if(version == 1) {
+
+        }
+        if(version == 2) {
+
+        }
     }
 
     private void initImageBitmaps() {
