@@ -29,7 +29,54 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.926" />
 
+<<<<<<< HEAD
 
+=======
+    <ImageView
+        android:id="@+id/pink_rectangle"
+        android:layout_width="439dp"
+        android:layout_height="110dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        app:srcCompat="@drawable/light_board" />
+
+    <ImageView
+        android:id="@+id/blue_boarder"
+        android:layout_width="412dp"
+        android:layout_height="107dp"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/recylerview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/dark_blue_boarder" />
+
+    <TextView
+        android:id="@+id/month_name"
+        android:layout_width="66dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:text="@string/month_name"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <TextView
+        android:id="@+id/year_num"
+        android:layout_width="69dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="104dp"
+        android:text="@string/year_num"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.035" />
+>>>>>>> 23f19e57ecfd9c80d7b22cdd65c65bd961aa4b6e
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

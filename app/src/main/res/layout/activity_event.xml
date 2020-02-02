@@ -5,94 +5,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteX="-5dp"
+    tools:layout_editor_absoluteY="36dp">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/textViews"
-        android:layout_width="229dp"
-        android:layout_height="47dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/date_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_date"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.912"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.236">
-
-        <TextView
-            android:id="@+id/date_selected"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="38dp"
-            android:layout_marginBottom="5dp"
-            android:text="@string/no_date"
-            android:textColor="#000000"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/time_startSelected"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="284dp"
-        android:layout_marginTop="244dp"
         android:text="@string/start_default_time"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="@+id/date_selected"
+        app:layout_constraintTop_toTopOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/time_endSelected"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="284dp"
-        android:layout_marginTop="296dp"
         android:text="@string/end_default_time"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="@+id/time_startSelected"
+        app:layout_constraintStart_toStartOf="@+id/time_startSelected"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <Button
         android:id="@+id/save_button"
-        android:layout_width="197dp"
-        android:layout_height="75dp"
+        android:layout_width="174dp"
+        android:layout_height="68dp"
         android:background="#00FFFFFF"
         android:color="#FFFFFF"
         android:text="@string/click_save"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/save_bg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/back_button"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.942" />
+        app:layout_constraintStart_toEndOf="@+id/back_button"
+        app:layout_constraintTop_toTopOf="@+id/save_bg" />
 
     <Button
         android:id="@+id/back_button"
-        android:layout_width="199dp"
-        android:layout_height="75dp"
+        android:layout_width="176dp"
+        android:layout_height="64dp"
 
 
         android:background="#00FFFFFF"
-
         android:backgroundTint="#FFFFFF"
         android:color="#FFFFFF"
         android:text="@string/click_back"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.945" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView2"
@@ -105,234 +86,180 @@
 
 
     <Button
-        android:id="@+id/date_Delete"
-        android:layout_width="234dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="100dp"
-        android:background="#A2DBFF"
+        android:id="@+id/date_Set"
+        android:layout_width="212dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="40dp"
+        android:background="#FAFCFF"
         android:text="@string/set_date"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.163" />
+        app:layout_constraintTop_toBottomOf="@id/titleInput" />
 
     <ImageView
         android:id="@+id/save_bg"
-        android:layout_width="196dp"
-        android:layout_height="75dp"
+        android:layout_width="177dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.986"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.945"
+        app:layout_constraintTop_toBottomOf="@+id/alert_dropdown"
         app:srcCompat="@drawable/save_button" />
 
     <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="200dp"
-        android:layout_height="73dp"
+        android:id="@+id/imageView2"
+        android:layout_width="177dp"
+        android:layout_height="68dp"
         android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/save_bg"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.731"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.942"
+        app:layout_constraintTop_toBottomOf="@+id/alert_dropdown"
         app:srcCompat="@drawable/back_button" />
 
     <Spinner
         android:id="@+id/alert_dropdown"
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="29dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.742" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="347dp"
-        android:layout_height="66dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.049"
-        app:srcCompat="@drawable/white_rec" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="265dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="348dp"
-        android:layout_marginBottom="331dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.767"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/white_rec" />
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="267dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="420dp"
-        android:layout_marginBottom="243dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.784"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/white_rec" />
-
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="270dp"
-        android:layout_height="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.794"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.748"
-        app:srcCompat="@drawable/white_rec" />
+        android:layout_width="246dp"
+        android:layout_height="38dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/description"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/description"
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
     <EditText
         android:id="@+id/description"
-        android:layout_width="254dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginBottom="244dp"
+        android:layout_width="240dp"
+        android:layout_height="55dp"
         android:ems="10"
         android:hint="@string/description_text"
         android:inputType="textPersonName"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/locationInput"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/locationInput"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <EditText
         android:id="@+id/locationInput"
-        android:layout_width="254dp"
-        android:layout_height="wrap_content"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="3dp"
         android:ems="10"
         android:hint="@string/location_name"
         android:inputType="textPersonName"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toStartOf="@+id/mapView2"
-        app:layout_constraintHorizontal_bias="0.714"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516" />
-
-    <EditText
-        android:id="@+id/titleInput"
-        android:layout_width="331dp"
-        android:layout_height="59dp"
-        android:ems="10"
-        android:hint="@string/title_name"
-        android:inputType="textPersonName"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.412"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.059" />
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="58dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="28dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.76"
+        android:layout_width="47dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
         app:srcCompat="@drawable/bell" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="109dp"
-        android:layout_height="63dp"
-        android:layout_marginBottom="234dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="76dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.981"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:srcCompat="@drawable/pages" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="63dp"
-        android:layout_height="113dp"
-        android:layout_marginTop="308dp"
-        android:layout_marginBottom="310dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
+        android:layout_width="47dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:srcCompat="@drawable/location_marker" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="504dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="311dp"
         android:text="@string/date_label"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textViews"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907" />
+        app:layout_constraintTop_toBottomOf="@+id/date_Set" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="227dp"
-        android:layout_marginBottom="452dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="250dp"
         android:text="@string/start_label"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textViews"
-        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="276dp"
-        android:layout_marginBottom="400dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="260dp"
         android:text="@string/end_label"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textViews"
-        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <ImageView
+        android:id="@+id/pink_line"
+        android:layout_width="470dp"
+        android:layout_height="133dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/date_Set"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/blue_border"
+        app:srcCompat="@drawable/light_board" />
+
+    <ImageView
+        android:id="@+id/blue_border"
+        android:layout_width="415dp"
+        android:layout_height="146dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.923" />
+        app:srcCompat="@drawable/dark_blue_boarder" />
+
+    <EditText
+        android:id="@+id/titleInput"
+        android:layout_width="352dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="@string/title_name"
+        android:inputType="textPersonName"
+        android:textColorHint="#FFFDFD"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/blue_border" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
