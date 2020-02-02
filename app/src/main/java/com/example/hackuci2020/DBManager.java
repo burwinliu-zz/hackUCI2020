@@ -102,6 +102,7 @@ public class DBManager {
     }
 
     public ArrayList<Event> getDaysEvents(TimeRepresentation time){
+
         return new ArrayList<Event>();
     }
 

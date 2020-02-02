@@ -22,7 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.786"
         app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/date_Delete"
+        app:layout_constraintTop_toBottomOf="@+id/date_Set"
         app:layout_constraintVertical_bias="0.13" />
 
     <TextView
@@ -100,7 +100,7 @@
 
 
     <Button
-        android:id="@+id/date_Delete"
+        android:id="@+id/date_Set"
         android:layout_width="234dp"
         android:layout_height="52dp"
         android:layout_marginTop="20dp"
@@ -125,7 +125,6 @@
         app:srcCompat="@drawable/save_button" />
 
     <ImageView
-        android:id="@+id/imageView8"
         android:layout_width="177dp"
         android:layout_height="68dp"
         android:background="#FFFFFF"
@@ -152,13 +151,9 @@
         android:id="@+id/imageButton"
         android:layout_width="347dp"
         android:layout_height="66dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.049"
-        app:srcCompat="@drawable/white_rec" />
+        app:srcCompat="@drawable/white_rec"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="33dp" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -166,6 +161,7 @@
         android:layout_height="52dp"
         android:layout_marginTop="348dp"
         android:layout_marginBottom="331dp"
+        android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.767"
@@ -309,6 +305,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="446dp"
+        android:layout_height="109dp"
+        app:srcCompat="@drawable/dark_blue_boarder"
+        tools:layout_editor_absoluteX="-18dp"
+        tools:layout_editor_absoluteY="-54dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

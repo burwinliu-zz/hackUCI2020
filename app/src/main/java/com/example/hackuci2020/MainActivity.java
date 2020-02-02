@@ -12,11 +12,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import com.example.hackuci2020.MapFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private static final String TAG = "MainActivity";
     // vars
@@ -43,13 +44,16 @@ public class MainActivity extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, EventActivity.class));
+                Intent i = new Intent(MainActivity.this, EventActivity.class);
+                startActivity(i);
             }
         });
 
         initImageBitmaps();
 
+
     }
+
     private void initImageBitmaps() {
         Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
         internetURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/83691170_3117173931650230_3437677482822598656_n.jpg?_nc_cat=105&_nc_ohc=szftTcVtXFcAX9wGmyR&_nc_ht=scontent-lax3-1.xx&oh=1500789deabfbd5dbe65b31fd9966c31&oe=5ECE1603");

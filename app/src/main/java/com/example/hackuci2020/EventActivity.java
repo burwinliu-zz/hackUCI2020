@@ -10,14 +10,23 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.hackuci2020.DBManager;
+
 import java.util.Calendar;
 
 public class EventActivity extends AppCompatActivity implements TimePickerFragment.OnInputListener {
+
+    public interface InputListener{
+        void saveEvent(Event e);
+        Event getEvent(TimeRepresentation t);
+    }
+
+    private InputListener inputListener;
+
     TextView dateSelected, hourStartSelected, hourEndSelected, title, description;
-    Button input, view, setDateTime, back, submit;
+    Button save, back, setDateTime;
     Spinner alert;
     Calendar calendar = Calendar.getInstance();
-    ConstraintLayout textViews;
 
     int day = 0;
     int month = 0;
@@ -47,17 +56,35 @@ public class EventActivity extends AppCompatActivity implements TimePickerFragme
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         alert.setAdapter(myAdapter);
 
-        submit = findViewById(R.id.save_button);
-        submit.setOnClickListener(new View.OnClickListener() {
+        save = findViewById(R.id.save_button);
+        save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // SAVE ITEMS HERE TO DATABASE
                 TimeRepresentation start = new TimeRepresentation(minute_start, hour_start, day, month, year);
                 TimeRepresentation end = new TimeRepresentation(minute_end, hour_end, day, month, year);
                 Event new_event = new Event(title.getText().toString(), new Location(0, 0, "event_location"), start, end, description.getText().toString(), 0);
+                //DBManager.insertEvent(new_event)
+                setContentView(R.layout.activity_main);
+                //takes all info and puts it out into something
+                inputListener.saveEvent(new_event);
+
+                DBManager dbmanager = new DBManager(getApplicationContext());
+                dbmanager.open();
+                dbmanager.insertEvent(new_event);
+                dbmanager.close();
             }
         });
 
-        setDateTime = findViewById(R.id.date_Delete);
+        back = findViewById(R.id.back_button);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.activity_main);
+            }
+        });
+
+        setDateTime = findViewById(R.id.date_Set);
         setDateTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
