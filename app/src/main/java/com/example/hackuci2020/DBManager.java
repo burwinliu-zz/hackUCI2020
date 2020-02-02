@@ -36,9 +36,69 @@ public class DBManager {
     }
 
     public Event getEvent(TimeRepresentation time){
-        getTimeID(time);
-        return new Event(null, null, 0,
-                0, null, null, null, 0);
+        String[] columns = {
+                DBHelper.COLUMN_NAME_MINUTE,
+                DBHelper.COLUMN_NAME_HOUR,
+                DBHelper.COLUMN_NAME_DAY,
+                DBHelper.COLUMN_NAME_MONTH,
+                DBHelper.COLUMN_NAME_YEAR
+        };
+        String selection =
+                DBHelper.COLUMN_NAME_MINUTE + " =? AND" +
+                DBHelper.COLUMN_NAME_HOUR + " =? AND" +
+                DBHelper.COLUMN_NAME_DAY + " =? AND" +
+                DBHelper.COLUMN_NAME_MONTH + " =? AND" +
+                DBHelper.COLUMN_NAME_YEAR + " =?";
+        String[] selectionArgs = {
+                Integer.toString(time.getMinute()),
+                Integer.toString(time.getHour()),
+                Integer.toString(time.getDay()),
+                Integer.toString(time.getMonth()),
+                Integer.toString(time.getYear())
+        };
+        Cursor cursor1 = null;
+        Cursor cursor = null;
+
+        try {
+            cursor = database.query(DBHelper.TABLE_TIME, columns, selection,
+                    selectionArgs, null, null, null, null);
+            cursor.moveToFirst();
+            while (cursor.moveToNext()) {
+                if (valueExistsStart(cursor.getColumnIndex(DBHelper.COLUMN_NAME_UNIQUE_TIME_ID))) {
+                    String[] col = {
+                            DBHelper.COLUMN_NAME_UNIQUE_TIME_ID
+                    };
+                    String sel = DBHelper.COLUMN_NAME_UNIQUE_TIME_ID + " =?";
+                    String arg =
+                            Integer.toString(cursor.getColumnIndex(DBHelper.COLUMN_NAME_UNIQUE_TIME_ID));
+                    cursor1 = database.query(DBHelper.TABLE_TIME, columns, selection,
+                            selectionArgs, null, null, null, null);
+                    cursor1.moveToFirst();
+                    if(cursor1.moveToNext()) {
+//                        TimeRepresentation start = getTime(cursor1.getInt(cursor1.getColumnIndex(DBHelper.COLUMN_NAME_START_ID)));
+//                        TimeRepresentation end = getTime(cursor1.getFloat(cursor1.getColumnIndex(DBHelper.COLUMN_NAME_END_ID)));
+//
+
+//                        return new Event(
+//                                cursor1.getString(cursor1.getColumnIndex(DBHelper.COLUMN_NAME_TITLE)),
+//                                cursor1.getInt(cursor1.getColumnIndex(DBHelper.COLUMN_NAME_LOCATION_ID)),
+//                                cursor1.getFloat(cursor1.getColumnIndex(DBHelper.COLUMN_NAME_LONGITUDE)),
+//                                cursor1.getFloat(cursor1.getColumnIndex(DBHelper.COLUMN_NAME_LATITUDE)),
+//                                start,
+//                                end,
+//                                cursor1.getColumnIndex(DBHelper.COLUMN_NAME_DESCRIPTION),
+//                                cursor1.getColumnIndex(DBHelper.COLUMN_NAME_TRAVELTYPE)
+//                        );
+                    }
+                }
+            }
+        }finally {
+            if(cursor != null && !cursor.isClosed())
+                cursor.close();
+            if(cursor1 != null && !cursor1.isClosed())
+                cursor1.close();
+        }
+        return null;
     }
 
     public ArrayList<Event> getDaysEvents(TimeRepresentation time){

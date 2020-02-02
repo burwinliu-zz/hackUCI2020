@@ -15,12 +15,12 @@ public class Event {
     private int alert_before, travel_type;
     // Alert this many minutes before the event
 
-    public Event(String event_name, String event_location, float longi, float lati, TimeRepresentation time_start,
+    public Event(String event_name, Location l, TimeRepresentation time_start,
                  TimeRepresentation time_end, String event_description, int travel){
         name = event_name;
-        location = event_location;
-        longitude = longi;
-        latitude = lati;
+        location = l.getAddr();
+        longitude = l.getLong();
+        latitude = l.getLat();
         description = event_description;
         start_time = time_start;
         end_time = time_end;
