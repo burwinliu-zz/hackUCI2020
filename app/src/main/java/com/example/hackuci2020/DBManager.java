@@ -8,6 +8,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.sql.Time;
 import java.util.ArrayList;
@@ -246,6 +247,7 @@ public class DBManager {
                     );
                     if (valueExistsStart(cursor.getColumnIndex(DBHelper.COLUMN_NAME_UNIQUE_TIME_ID))){
                         Event e = getEvent(temp);
+                        Log.d("getLASTEVENT", e.getDescription());
                         return e;
                     }
                 }
@@ -299,8 +301,11 @@ public class DBManager {
         APIInterface apiInterface = new APIInterface();
         ContentValues contentValue = new ContentValues();
         Event lastEvent = getLastEvent(event.getStartTime());
-        int notification = apiInterface.getTime(lastEvent.getLongitude(), lastEvent.getLatitude(),
-                event.getLongitude(), event.getLatitude(), event.getTravel());
+        int notification = 0;
+
+        if(lastEvent != null)
+            notification = apiInterface.getTime(lastEvent.getLongitude(), lastEvent.getLatitude(),
+                    event.getLongitude(), event.getLatitude(), event.getTravel());
 
         updateLastTime(event.getEndTime(), event.getLongitude(), event.getLatitude());
 
