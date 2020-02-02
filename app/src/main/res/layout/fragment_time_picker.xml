@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
     android:layout_marginBottom="20dp"
-    android:background="@android:color/transparent"
+    android:background="@drawable/gradient"
 
     tools:context=".MainActivity">
 

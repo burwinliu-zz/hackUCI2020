@@ -38,7 +38,6 @@ public class EventActivity extends AppCompatActivity implements TimePickerFragme
         hourStartSelected = findViewById(R.id.time_startSelected);
         hourEndSelected = findViewById(R.id.time_endSelected);
 
-        textViews = findViewById(R.id.textViews);
         title = findViewById(R.id.titleInput);
         description = findViewById(R.id.description);
 
