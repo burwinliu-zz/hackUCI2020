@@ -31,13 +31,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: started.");
 
-        Button trashTesting = findViewById(R.id.trash);
-        trashTesting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent (MainActivity.this, BurwinsHome2.class));
-            }
-        });
 
         Button createButton = findViewById(R.id.add_event);
         createButton.setOnClickListener(new View.OnClickListener() {

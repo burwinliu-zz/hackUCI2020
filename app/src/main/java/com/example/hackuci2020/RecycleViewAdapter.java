@@ -5,6 +5,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,7 +40,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder: called.");
 
         Glide.with(mContext)
@@ -49,6 +50,17 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         holder.imageName.setText(ImageNames.get(position));
 
         //on click thing hear to open up either fragment or activity showing the event's details
+        holder.parentLayout.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick (View view) {
+                Log.d(TAG, "onClick: clicked on: " + ImageNames.get(position));
+
+                Intent intent = new Intent(mContext, DescriptionActivity.class);
+                intent.putExtra("image_url", Images.get(position));
+                intent.putExtra("image_name", ImageNames.get(position));
+            }
+
+        }));
     }
 
     @Override
