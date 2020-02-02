@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity{
         Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
         TimeRepresentation tr = new TimeRepresentation(0, 1, 0, 0, 0);
         internetURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/83691170_3117173931650230_3437677482822598656_n.jpg?_nc_cat=105&_nc_ohc=szftTcVtXFcAX9wGmyR&_nc_ht=scontent-lax3-1.xx&oh=1500789deabfbd5dbe65b31fd9966c31&oe=5ECE1603");
-        //Names.add(db.getEvent(tr).getName());
+        Names.add(db.getEvent(tr).getName());
         internetURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/83283376_3117181288316161_5247461579053596672_n.jpg?_nc_cat=104&_nc_ohc=IxSXks2dtOIAX_xgHla&_nc_ht=scontent-lax3-1.xx&oh=7d4a5631876a0cf07a06ec2484edcbd1&oe=5ED979F1");
         Names.add("Event");
         internetURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/83259395_3117181294982827_915053949327769600_n.jpg?_nc_cat=102&_nc_ohc=FLSYumnOWzcAX9FUY0w&_nc_ht=scontent-lax3-1.xx&oh=f686bc1c074a26c47c8d9235444be5b5&oe=5ED1921C");
