@@ -1,6 +1,8 @@
 package com.example.hackuci2020;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,6 +13,8 @@ import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
+
+import com.example.hackuci2020.MapFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, EventActivity.class));
             }
         });
+
         initImageBitmaps();
 
     }
