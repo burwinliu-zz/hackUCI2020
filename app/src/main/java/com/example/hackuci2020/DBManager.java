@@ -8,6 +8,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.sql.Time;
 import java.util.ArrayList;
@@ -56,10 +57,10 @@ public class DBManager {
                 DBHelper.COLUMN_NAME_YEAR
         };
         String selection =
-                DBHelper.COLUMN_NAME_MINUTE + " =? AND" +
-                DBHelper.COLUMN_NAME_HOUR + " =? AND" +
-                DBHelper.COLUMN_NAME_DAY + " =? AND" +
-                DBHelper.COLUMN_NAME_MONTH + " =? AND" +
+                DBHelper.COLUMN_NAME_MINUTE + " =? AND " +
+                DBHelper.COLUMN_NAME_HOUR + " =? AND " +
+                DBHelper.COLUMN_NAME_DAY + " =? AND " +
+                DBHelper.COLUMN_NAME_MONTH + " =? AND " +
                 DBHelper.COLUMN_NAME_YEAR + " =?";
         String[] selectionArgs = {
                 Integer.toString(time.getMinute()),
@@ -216,7 +217,11 @@ public class DBManager {
         Cursor cursor = null;
         try {
             cursor = database.rawQuery(
-                    "SELECT " + DBHelper.COLUMN_NAME_HOUR + " , " + DBHelper.COLUMN_NAME_MINUTE +
+                    "SELECT " + DBHelper.COLUMN_NAME_HOUR +
+                            " , " + DBHelper.COLUMN_NAME_MINUTE +
+                            " , " + DBHelper.COLUMN_NAME_DAY +
+                            " , " + DBHelper.COLUMN_NAME_MONTH +
+                            " , " + DBHelper.COLUMN_NAME_YEAR +
                             " FROM " + DBHelper.TABLE_TIME +
                             " WHERE " + DBHelper.COLUMN_NAME_DAY + " =? AND " +
                             DBHelper.COLUMN_NAME_MONTH + " =? AND " +
@@ -246,6 +251,7 @@ public class DBManager {
                     );
                     if (valueExistsStart(cursor.getColumnIndex(DBHelper.COLUMN_NAME_UNIQUE_TIME_ID))){
                         Event e = getEvent(temp);
+                        Log.d("getLASTEVENT", e.getDescription());
                         return e;
                     }
                 }
@@ -299,8 +305,11 @@ public class DBManager {
         APIInterface apiInterface = new APIInterface();
         ContentValues contentValue = new ContentValues();
         Event lastEvent = getLastEvent(event.getStartTime());
-        int notification = apiInterface.getTime(lastEvent.getLongitude(), lastEvent.getLatitude(),
-                event.getLongitude(), event.getLatitude(), event.getTravel());
+        int notification = 0;
+
+        if(lastEvent != null)
+            notification = apiInterface.getTime(lastEvent.getLongitude(), lastEvent.getLatitude(),
+                    event.getLongitude(), event.getLatitude(), event.getTravel());
 
         updateLastTime(event.getEndTime(), event.getLongitude(), event.getLatitude());
 

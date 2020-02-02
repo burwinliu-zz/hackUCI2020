@@ -2,8 +2,12 @@ package com.example.hackuci2020;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -65,14 +69,17 @@ public class EventActivity extends AppCompatActivity implements TimePickerFragme
                 TimeRepresentation end = new TimeRepresentation(minute_end, hour_end, day, month, year);
                 Event new_event = new Event(title.getText().toString(), new Location(0, 0, "event_location"), start, end, description.getText().toString(), 0);
                 //DBManager.insertEvent(new_event)
-                setContentView(R.layout.activity_main);
                 //takes all info and puts it out into something
-                inputListener.saveEvent(new_event);
+                Log.d("TEST", new_event.getLocation());
+//                inputListener.saveEvent(new_event);
 
                 DBManager dbmanager = new DBManager(getApplicationContext());
                 dbmanager.open();
                 dbmanager.insertEvent(new_event);
+//                Log.d("DATABASE", dbmanager.getEvent())
                 dbmanager.close();
+
+                startActivity(new Intent(EventActivity.this, MainActivity.class));
             }
         });
 
@@ -90,7 +97,6 @@ public class EventActivity extends AppCompatActivity implements TimePickerFragme
             public void onClick(View v) {
                 TimePickerFragment dialog = new TimePickerFragment();
                 dialog.show(getSupportFragmentManager(), "TimePickerFragmentManager");
-
             }
         });
     }
