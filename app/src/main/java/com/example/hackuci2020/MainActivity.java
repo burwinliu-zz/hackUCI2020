@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity{
         internetURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/83691170_3117173931650230_3437677482822598656_n.jpg?_nc_cat=105&_nc_ohc=szftTcVtXFcAX9wGmyR&_nc_ht=scontent-lax3-1.xx&oh=1500789deabfbd5dbe65b31fd9966c31&oe=5ECE1603");
         //Names.add(db.getEvent(tr).getName());
         internetURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/83283376_3117181288316161_5247461579053596672_n.jpg?_nc_cat=104&_nc_ohc=IxSXks2dtOIAX_xgHla&_nc_ht=scontent-lax3-1.xx&oh=7d4a5631876a0cf07a06ec2484edcbd1&oe=5ED979F1");
-        Names.add("Event");
+        Names.add("HackUCI!");
         internetURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/83259395_3117181294982827_915053949327769600_n.jpg?_nc_cat=102&_nc_ohc=FLSYumnOWzcAX9FUY0w&_nc_ht=scontent-lax3-1.xx&oh=f686bc1c074a26c47c8d9235444be5b5&oe=5ED1921C");
         Names.add("Event");
         internetURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/83704618_3117181231649500_3814580594126356480_n.jpg?_nc_cat=102&_nc_ohc=om_hJl3SZzEAX9bvGCe&_nc_ht=scontent-lax3-1.xx&oh=8b4b658bbc5c9639408c355d4171c705&oe=5E8ED40D");

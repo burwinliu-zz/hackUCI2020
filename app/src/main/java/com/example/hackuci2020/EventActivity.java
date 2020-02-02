@@ -28,7 +28,7 @@ public class EventActivity extends AppCompatActivity implements TimePickerFragme
     private InputListener inputListener;
 
     TextView dateSelected, hourStartSelected, hourEndSelected, title, description;
-    Button save, back, setDateTime;
+    Button save, back, setDateTime, mapBtn;
     Spinner alert;
     Calendar calendar = Calendar.getInstance();
 
@@ -46,6 +46,14 @@ public class EventActivity extends AppCompatActivity implements TimePickerFragme
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_event);
+
+        mapBtn = findViewById(R.id.mapbut);
+        mapBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(EventActivity.this, MapActivity.class));
+            }
+        });
 
         dateSelected = findViewById(R.id.date_selected);
         hourStartSelected = findViewById(R.id.time_startSelected);
@@ -80,7 +88,7 @@ public class EventActivity extends AppCompatActivity implements TimePickerFragme
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_main);
+                startActivity(new Intent(EventActivity.this, MainActivity.class));
             }
         });
 

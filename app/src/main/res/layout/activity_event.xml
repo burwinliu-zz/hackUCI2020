@@ -149,15 +149,16 @@
         android:id="@+id/locationInput"
         android:layout_width="240dp"
         android:layout_height="60dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="21dp"
         android:layout_marginEnd="3dp"
         android:ems="10"
         android:hint="@string/location_name"
         android:inputType="textPersonName"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toStartOf="@+id/mapView2"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        app:layout_constraintStart_toEndOf="@+id/mapbut"
+        app:layout_constraintTop_toBottomOf="@+id/time_endSelected" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -171,22 +172,14 @@
         android:id="@+id/imageView4"
         android:layout_width="38dp"
         android:layout_height="48dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:srcCompat="@drawable/pages" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="39dp"
-        android:layout_height="53dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="71dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/description"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:srcCompat="@drawable/location_marker" />
+        app:layout_constraintTop_toBottomOf="@+id/mapbut"
+        app:srcCompat="@drawable/pages" />
 
     <TextView
         android:id="@+id/textView2"
@@ -260,6 +253,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/blue_border" />
+
+    <Button
+        android:id="@+id/mapbut"
+        android:layout_width="47dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="376dp"
+        android:background="@drawable/location_marker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
