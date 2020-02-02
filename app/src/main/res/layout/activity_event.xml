@@ -103,15 +103,13 @@
         android:id="@+id/date_Set"
         android:layout_width="234dp"
         android:layout_height="52dp"
-        android:layout_marginTop="20dp"
         android:background="#A2DBFF"
         android:text="@string/set_date"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        app:layout_constraintVertical_bias="0.363" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/save_bg"
@@ -151,9 +149,12 @@
         android:id="@+id/imageButton"
         android:layout_width="347dp"
         android:layout_height="66dp"
-        app:srcCompat="@drawable/white_rec"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="33dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.187"
+        app:srcCompat="@drawable/white_rec" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -187,14 +188,17 @@
         android:id="@+id/description"
         android:layout_width="254dp"
         android:layout_height="52dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginBottom="244dp"
+        android:layout_marginStart="120dp"
         android:ems="10"
         android:hint="@string/description_text"
         android:inputType="textPersonName"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+        app:layout_constraintVertical_bias="0.132" />
 
     <EditText
         android:id="@+id/locationInput"
@@ -204,12 +208,12 @@
         android:hint="@string/location_name"
         android:inputType="textPersonName"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton4"
         app:layout_constraintEnd_toStartOf="@+id/mapView2"
-        app:layout_constraintHorizontal_bias="0.714"
+        app:layout_constraintHorizontal_bias="0.798"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516" />
+        app:layout_constraintVertical_bias="0.913" />
 
     <EditText
         android:id="@+id/titleInput"
@@ -219,12 +223,9 @@
         android:hint="@string/title_name"
         android:inputType="textPersonName"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.412"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.059" />
+        app:layout_constraintStart_toStartOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -236,7 +237,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.76"
+        app:layout_constraintVertical_bias="0.763"
         app:srcCompat="@drawable/bell" />
 
     <ImageView
@@ -245,7 +246,7 @@
         android:layout_height="63dp"
         android:layout_marginBottom="234dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/description"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -309,10 +310,17 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="446dp"
-        android:layout_height="109dp"
-        app:srcCompat="@drawable/dark_blue_boarder"
-        tools:layout_editor_absoluteX="-18dp"
-        tools:layout_editor_absoluteY="-54dp" />
+        android:layout_height="125dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dark_blue_boarder" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
