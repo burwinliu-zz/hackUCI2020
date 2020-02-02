@@ -5,6 +5,9 @@ import java.sql.Time;
 public class FauxDB {
     public FauxDB(){}
 
+    public String event1(){return "Beach Party";}
+    public String event2(){return "Boba Date";}
+    public String event3(){return "Shopping with the family";}
     public TimeRepresentation time1(){
         return new TimeRepresentation(5, 5, 2, 3, 2020);
     }

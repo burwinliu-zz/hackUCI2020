@@ -22,6 +22,9 @@ import com.example.hackuci2020.DBManager;
 public class MainActivity extends AppCompatActivity{
 
     DBManager db;
+    FauxDB dbfake;
+
+    RecycleViewAdapter adapter;
 
     private static final String TAG = "MainActivity";
     // vars
@@ -29,7 +32,7 @@ public class MainActivity extends AppCompatActivity{
     private ArrayList<String> internetURLs = new ArrayList<>();
 
 
-    private int version;
+    private int version = -1;
 
 
 
@@ -37,6 +40,8 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dbfake = new FauxDB();
         Log.d(TAG, "onCreate: started.");
 
         Button createButton = findViewById(R.id.add_event);
@@ -47,14 +52,15 @@ public class MainActivity extends AppCompatActivity{
                 startActivity(i);
             }
         });
+        if (version == -1){
+            version = 0;
+            db = new DBManager(getApplicationContext());
 
-        db = new DBManager(getApplicationContext());
+            db.open();
+            initImageBitmaps();
+            db.close();
+        }
 
-        db.open();
-        initImageBitmaps();
-        db.close();
-
-        version = 0;
 
     }
 
@@ -63,13 +69,23 @@ public class MainActivity extends AppCompatActivity{
         super.startActivity(intent);
         if(version == 0) {
             version = 1;
-            Log.d("activity" , "Good log");
+            Names.set(dbfake.time1().getHour(), dbfake.event1());
+            Log.d("FAKING IT", Names.get(dbfake.time1().getHour()));
+            Log.d("FAKING IT MORE", Integer.toString(dbfake.time1().getHour()));
+            adapter.notifyItemChanged(dbfake.time1().getHour());
+            return;
         }
         if(version == 1) {
-
+            version = 2;
+            Names.set(dbfake.time2().getHour(), dbfake.event2());
+            adapter.notifyItemChanged(dbfake.time2().getHour());
+            return;
         }
         if(version == 2) {
-
+            version = 3;
+            Names.set(dbfake.time3().getHour(), dbfake.event3());
+            adapter.notifyItemChanged(dbfake.time3().getHour());
+            return;
         }
     }
 
@@ -135,7 +151,7 @@ public class MainActivity extends AppCompatActivity{
     private void initRecyclerView() {
         Log.d(TAG, "initRecyclerView: init recyclerview");
         RecyclerView recyclerView = findViewById(R.id.recylerview);
-        RecycleViewAdapter adapter = new RecycleViewAdapter(this, Names, internetURLs);
+        adapter = new RecycleViewAdapter(this, Names, internetURLs);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
