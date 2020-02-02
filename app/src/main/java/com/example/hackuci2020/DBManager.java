@@ -1,5 +1,7 @@
 package com.example.hackuci2020;
 
+import com.example.hackuci2020.APIInterface;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -7,6 +9,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
 
+import java.sql.Time;
 import java.util.ArrayList;
 
 public class DBManager {
@@ -28,70 +31,204 @@ public class DBManager {
         this.dbHelper.close();
     }
 
-//    public Event getEvent(SQLiteDatabase db, TimeRepresentation time){
-//
-//    }
-//
-//    private ArrayList<Integer> getTimeID(SQLiteDatabase db, TimeRepresentation time){
-//        String table = DBHelper.TABLE_TIME;
-//        String[] columns = {DBHelper.COLUMN_NAME_UNIQUE_TIME_ID};
-//        String selection = DBHelper.COLUMN_NAME_MINUTE + " =? AND "
-//                + DBHelper.COLUMN_NAME_HOUR + " =? AND "
-//                + DBHelper.COLUMN_NAME_DAY + " =? AND "
-//                + DBHelper.COLUMN_NAME_MONTH + " =? AND "
-//                + DBHelper.COLUMN_NAME_YEAR + " =?";
-//        String[] selectionArgs = {
-//                Integer.toString(time.getMinute()),
-//                Integer.toString(time.getHour()),
-//                Integer.toString(time.getDay()),
-//                Integer.toString(time.getMonth()),
-//                Integer.toString(time.getYear())
-//        };
-//        Cursor cursor = null;
-//        ArrayList<Integer> result = new ArrayList<>();
-//
-//        try {
-//            cursor = db.query(table, columns, selection, selectionArgs, null, null, null);
-//            cursor.moveToFirst();
-//            while(cursor.moveToNext()) {
-//                result.add(cursor.getInt(0));
-//            }
-//
-//        }finally {
-//            if (cursor != null && !cursor.isClosed()) {
-//                cursor.close();
-//            }
-//        }
-//
-//        return result;
-//    }
-//
-//    public void insertEvent(SQLiteDatabase db, Event event){
-//        ContentValues contentValue = new ContentValues();
-//        contentValue.put(DBHelper.COLUMN_NAME_TITLE, event.getName());
-//        contentValue.put(DBHelper.COLUMN_NAME_DESCRIPTION, event.getDescription());
-//        contentValue.put(DBHelper.COLUMN_NAME_TRAVELTYPE, event.getTravel());
-//        contentValue.put(DBHelper.COLUMN_NAME_START_ID, insertTime(db, event.getStartTime()));
-//        contentValue.put(DBHelper.COLUMN_NAME_END_ID, insertTime(db, event.getEndTime()));
-//        contentValue.put(DBHelper.COLUMN_NAME_LOCATION_ID,
-//                insertLocation(db, event.getLongitude(), event.getLatitude(), event.getLocation()));
-//        contentValue.put(DBHelper.COLUMN_NAME_ALERT_ID,
-//    }
-//
-//    private int insertTime(SQLiteDatabase db, TimeRepresentation time){
-//
-//    }
-//
-//    private int insertLocation(SQLiteDatabase db, float longitude, float lat, String address){
-//        //returns the unique identifier of the object
-//
-//    }
-//
-//    private boolean valueExistsTime(int unique_code){
-//
-//    }
-//
-//    private boolean valueExistsLocation(int unique_code){
-//
-//    }
+    private void updateLastTime(TimeRepresentation time, double longitude, double latitude){
+
+    }
+
+    public Event getEvent(TimeRepresentation time){
+        getTimeID(time);
+        return new Event(null, null, 0,
+                0, null, null, null, 0);
+    }
+
+    public ArrayList<Event> getDaysEvents(TimeRepresentation time){
+        return new ArrayList<Event>();
+    }
+
+    //todo test, dev seems done
+    private Event getLastEvent(TimeRepresentation time){
+        Cursor cursor = null;
+        try {
+            cursor = database.rawQuery(
+                    "SELECT " + DBHelper.COLUMN_NAME_HOUR + " , " + DBHelper.COLUMN_NAME_MINUTE +
+                            " FROM " + DBHelper.TABLE_TIME +
+                            " WHERE " + DBHelper.COLUMN_NAME_DAY + " =? AND " +
+                            DBHelper.COLUMN_NAME_MONTH + " =? AND " +
+                            DBHelper.COLUMN_NAME_YEAR + " =? AND " +
+                            DBHelper.COLUMN_NAME_HOUR + " <=?" +
+                            " ORDER BY " + DBHelper.COLUMN_NAME_HOUR + " DESC, " +
+                            DBHelper.COLUMN_NAME_MINUTE + " DESC",
+                    new String[]{
+                            Integer.toString(time.getDay()),
+                            Integer.toString(time.getDay()),
+                            Integer.toString(time.getYear()),
+                            Integer.toString(time.getHour())
+                    }
+            );
+
+            cursor.moveToFirst();
+            while (cursor.moveToNext()) {
+                if (cursor.getColumnIndex(DBHelper.COLUMN_NAME_HOUR) < time.getHour() ||
+                        (cursor.getColumnIndex(DBHelper.COLUMN_NAME_HOUR) == time.getHour() &&
+                                cursor.getColumnIndex(DBHelper.COLUMN_NAME_MINUTE) < time.getMinute())) {
+                    TimeRepresentation temp = new TimeRepresentation(
+                            cursor.getColumnIndex(DBHelper.COLUMN_NAME_MINUTE),
+                            cursor.getColumnIndex(DBHelper.COLUMN_NAME_HOUR),
+                            cursor.getColumnIndex(DBHelper.COLUMN_NAME_DAY),
+                            cursor.getColumnIndex(DBHelper.COLUMN_NAME_MONTH),
+                            cursor.getColumnIndex(DBHelper.COLUMN_NAME_YEAR)
+                    );
+                    if (valueExistsStart(cursor.getColumnIndex(DBHelper.COLUMN_NAME_UNIQUE_TIME_ID))){
+                        Event e = getEvent(temp);
+                        return e;
+                    }
+                }
+            }
+        }
+        finally {
+            if(cursor!=null && !cursor.isClosed())
+                cursor.close();
+        }
+        return null;
+    }
+
+    //todo test, dev seems done
+    private ArrayList<Integer> getTimeID(TimeRepresentation time){
+        String table = DBHelper.TABLE_TIME;
+        String[] columns = {DBHelper.COLUMN_NAME_UNIQUE_TIME_ID};
+        String selection = DBHelper.COLUMN_NAME_MINUTE + " =? AND "
+                + DBHelper.COLUMN_NAME_HOUR + " =? AND "
+                + DBHelper.COLUMN_NAME_DAY + " =? AND "
+                + DBHelper.COLUMN_NAME_MONTH + " =? AND "
+                + DBHelper.COLUMN_NAME_YEAR + " =?";
+        String[] selectionArgs = {
+                Integer.toString(time.getMinute()),
+                Integer.toString(time.getHour()),
+                Integer.toString(time.getDay()),
+                Integer.toString(time.getMonth()),
+                Integer.toString(time.getYear())
+        };
+        Cursor cursor = null;
+        ArrayList<Integer> result = new ArrayList<>();
+
+        try {
+            cursor = database.query(table, columns, selection, selectionArgs,
+                    null, null, null);
+            cursor.moveToFirst();
+            while(cursor.moveToNext()) {
+                result.add(cursor.getInt(0));
+            }
+
+        }finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+
+        return result;
+    }
+
+    //todo test, development seems done
+    public void insertEvent(Event event){
+        APIInterface apiInterface = new APIInterface();
+        ContentValues contentValue = new ContentValues();
+        Event lastEvent = getLastEvent(event.getStartTime());
+        int notification = apiInterface.getTime(lastEvent.getLongitude(), lastEvent.getLatitude(),
+                event.getLongitude(), event.getLatitude(), event.getTravel());
+
+        updateLastTime(event.getEndTime(), event.getLongitude(), event.getLatitude());
+
+
+        contentValue.put(DBHelper.COLUMN_NAME_TITLE, event.getName());
+        contentValue.put(DBHelper.COLUMN_NAME_DESCRIPTION, event.getDescription());
+        contentValue.put(DBHelper.COLUMN_NAME_TRAVELTYPE, event.getTravel());
+        contentValue.put(DBHelper.COLUMN_NAME_START_ID, insertTime(database, event.getStartTime()));
+        contentValue.put(DBHelper.COLUMN_NAME_END_ID, insertTime(database, event.getEndTime()));
+        contentValue.put(DBHelper.COLUMN_NAME_LOCATION_ID,
+                insertLocation(database, event.getLongitude(), event.getLatitude(), event.getLocation()));
+        contentValue.put(DBHelper.COLUMN_NAME_ALERT_ID, notification);
+
+        database.insert(DBHelper.TABLE_EVENT, null, contentValue);
+    }
+
+    //todo test, dev seems good
+    private int insertTime(SQLiteDatabase db, TimeRepresentation time){
+        ContentValues contentValue = new ContentValues();
+
+        int i = time.getMinute()+time.getHour()+time.getDay()+time.getMonth()+time.getYear();
+
+        while(valueExistsTime(i))
+            ++i;
+
+        contentValue.put(DBHelper.COLUMN_NAME_MINUTE, time.getMinute());
+        contentValue.put(DBHelper.COLUMN_NAME_HOUR, time.getHour());
+        contentValue.put(DBHelper.COLUMN_NAME_DAY, time.getDay());
+        contentValue.put(DBHelper.COLUMN_NAME_MONTH, time.getMonth());
+        contentValue.put(DBHelper.COLUMN_NAME_YEAR, time.getYear());
+        contentValue.put(DBHelper.COLUMN_NAME_UNIQUE_TIME_ID, i);
+
+        database.insert(DBHelper.TABLE_TIME, null, contentValue);
+
+        return i;
+    }
+
+    //todo test, dev seems good
+    private int insertLocation(SQLiteDatabase db, float longitude, float latitude, String address){
+        //returns the unique identifier of the object
+        ContentValues contentValue = new ContentValues();
+
+        int i = (int) longitude + (int) latitude;
+
+        while(valueExistsLocation(i))
+            ++i;
+
+        contentValue.put(DBHelper.COLUMN_NAME_LATITUDE, latitude);
+        contentValue.put(DBHelper.COLUMN_NAME_LONGITUDE, longitude);
+        contentValue.put(DBHelper.COLUMN_NAME_UNIQUE_LOCATION_ID, i);
+
+
+        return i;
+    }
+
+    //todo test, dev seems good
+    private boolean valueExistsTime(int unique_code){
+        String[] columns = { DBHelper.COLUMN_NAME_UNIQUE_TIME_ID };
+        String selection = DBHelper.COLUMN_NAME_UNIQUE_TIME_ID + " =?";
+        String[] selectionArgs = { Integer.toString(unique_code) };
+        String limit = "1";
+
+        Cursor cursor = database.query(DBHelper.TABLE_TIME, columns, selection,
+                selectionArgs, null, null, null, limit);
+        boolean exists = (cursor.getCount() > 0);
+        cursor.close();
+        return exists;
+    }
+
+    //todo finished dev, need to test
+    private boolean valueExistsLocation(int unique_code){
+        String[] columns = { DBHelper.COLUMN_NAME_UNIQUE_LOCATION_ID };
+        String selection = DBHelper.COLUMN_NAME_UNIQUE_LOCATION_ID + " =?";
+        String[] selectionArgs = { Integer.toString(unique_code) };
+        String limit = "1";
+
+        Cursor cursor = database.query(DBHelper.TABLE_LOCATION, columns, selection,
+                selectionArgs, null, null, null, limit);
+        boolean exists = (cursor.getCount() > 0);
+        cursor.close();
+        return exists;
+    }
+
+    //todo finished dev, need to test
+    private boolean valueExistsStart(int unique_code){
+        String[] columns = { DBHelper.COLUMN_NAME_START_ID };
+        String selection = DBHelper.COLUMN_NAME_START_ID + " =?";
+        String[] selectionArgs = { Integer.toString(unique_code) };
+        String limit = "1";
+
+        Cursor cursor = database.query(DBHelper.TABLE_EVENT, columns, selection,
+                selectionArgs, null, null, null, limit);
+        boolean exists = (cursor.getCount() > 0);
+        cursor.close();
+        return exists;
+    }
 }
