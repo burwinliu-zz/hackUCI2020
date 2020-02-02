@@ -52,8 +52,8 @@
 
     <TextView
         android:id="@+id/month_name"
-        android:layout_width="66dp"
-        android:layout_height="43dp"
+        android:layout_width="99dp"
+        android:layout_height="44dp"
         android:layout_marginStart="28dp"
         android:text="@string/month_name"
         android:textColor="#FFFFFF"
@@ -65,16 +65,16 @@
 
     <TextView
         android:id="@+id/year_num"
-        android:layout_width="69dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="104dp"
+        android:layout_width="93dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="108dp"
         android:text="@string/year_num"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintVertical_bias="0.023" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

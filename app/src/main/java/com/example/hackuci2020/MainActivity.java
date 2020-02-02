@@ -107,6 +107,35 @@ public class MainActivity extends AppCompatActivity{
         mNames.add("2/14");
         mImageURLs.add("https://scontent-lax3-2.xx.fbcdn.net/v/t1.0-9/83203356_3766902133349947_2349191164944449536_n.jpg?_nc_cat=106&_nc_oc=AQmuVQd0GvwsQO83FuzNLhYvQhZV5wuRKhsomRaicwBNLvCr3s_mK49WHaD1hLw2iTY&_nc_ht=scontent-lax3-2.xx&oh=5e4fcfc51b6a4104a27d846526a20dbf&oe=5ED25B76");
         mNames.add("2/15");
+        mImageURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/83444303_3766902330016594_5241870300433350656_n.jpg?_nc_cat=103&_nc_oc=AQlatsJgp9JJ568xiqI3X-U_IyasE2sTDjgscUet7RbJsSn3WxMWA74e6ZfuH4BHQ0A&_nc_ht=scontent-lax3-1.xx&oh=4c82027e0e6c0a175ae2758acf6a9747&oe=5EC0FD20");
+        mNames.add("2/16");
+        mImageURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/83639480_3766900406683453_8602549890200895488_n.jpg?_nc_cat=105&_nc_oc=AQm8eI4-DZoWfpQv2uqOaBcxcotC6FgWQpCG8jFb5PZMnpxUHzzdUoK6tfL8mOuoc-M&_nc_ht=scontent-lax3-1.xx&oh=1bc11dedb03ccf8afd50175e45172d32&oe=5E8DAB79");
+        mNames.add("2/17");
+        mImageURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/84042122_3766900866683407_4119521317932236800_n.jpg?_nc_cat=105&_nc_oc=AQl4Bm5UWY3k_RSsaNRr9YDowfyrf2U0knYEvvhKGwYHbF_7oVcCDYf1Zwnmoqu0fjg&_nc_ht=scontent-lax3-1.xx&oh=68bab59ea851c2442e03ecdd610f8590&oe=5EBD20FA");
+        mNames.add("2/18");
+        mImageURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/84175694_3766901256683368_5084176590431059968_n.jpg?_nc_cat=105&_nc_oc=AQlgSL4fHocvLLA86m7rxK_aOVzvgfuBjB9W0IHnP6dXajRE7RCLUZ3rRQxHJdB3LCg&_nc_ht=scontent-lax3-1.xx&oh=ed4b76af5e2f65c500af6beb65bfa76f&oe=5ED7547F");
+        mNames.add("2/19");
+        mImageURLs.add("https://scontent-lax3-2.xx.fbcdn.net/v/t1.0-9/83477685_3766901513350009_8857137989386502144_n.jpg?_nc_cat=106&_nc_oc=AQmg-4sFkijbzTg6oTg7gBmAX2SD8rmaK7SPenPfhHl53U9aZUGXV1hulqxFV86MFhU&_nc_ht=scontent-lax3-2.xx&oh=899f58b76082e8489f2229bddc03cd8b&oe=5ED088B8");
+        mNames.add("2/20");
+        mImageURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/84016515_3766901740016653_6261553656001200128_n.jpg?_nc_cat=110&_nc_oc=AQnIZaXpvejdepjE6fO4gDc_J8_Oko3nMlMjqPUrBCHoMnGEq9JyrzRWSvXVDKm3xJc&_nc_ht=scontent-lax3-1.xx&oh=df554f0d3ce598f7fe735956981b5c67&oe=5ED44B0F");
+        mNames.add("2/21");
+        mImageURLs.add("https://scontent-lax3-2.xx.fbcdn.net/v/t1.0-9/83203356_3766902133349947_2349191164944449536_n.jpg?_nc_cat=106&_nc_oc=AQmuVQd0GvwsQO83FuzNLhYvQhZV5wuRKhsomRaicwBNLvCr3s_mK49WHaD1hLw2iTY&_nc_ht=scontent-lax3-2.xx&oh=5e4fcfc51b6a4104a27d846526a20dbf&oe=5ED25B76");
+        mNames.add("2/22");
+        mImageURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/83444303_3766902330016594_5241870300433350656_n.jpg?_nc_cat=103&_nc_oc=AQlatsJgp9JJ568xiqI3X-U_IyasE2sTDjgscUet7RbJsSn3WxMWA74e6ZfuH4BHQ0A&_nc_ht=scontent-lax3-1.xx&oh=4c82027e0e6c0a175ae2758acf6a9747&oe=5EC0FD20");
+        mNames.add("2/23");
+        mImageURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/83639480_3766900406683453_8602549890200895488_n.jpg?_nc_cat=105&_nc_oc=AQm8eI4-DZoWfpQv2uqOaBcxcotC6FgWQpCG8jFb5PZMnpxUHzzdUoK6tfL8mOuoc-M&_nc_ht=scontent-lax3-1.xx&oh=1bc11dedb03ccf8afd50175e45172d32&oe=5E8DAB79");
+        mNames.add("2/24");
+        mImageURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/84042122_3766900866683407_4119521317932236800_n.jpg?_nc_cat=105&_nc_oc=AQl4Bm5UWY3k_RSsaNRr9YDowfyrf2U0knYEvvhKGwYHbF_7oVcCDYf1Zwnmoqu0fjg&_nc_ht=scontent-lax3-1.xx&oh=68bab59ea851c2442e03ecdd610f8590&oe=5EBD20FA");
+        mNames.add("2/25");
+        mImageURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/84175694_3766901256683368_5084176590431059968_n.jpg?_nc_cat=105&_nc_oc=AQlgSL4fHocvLLA86m7rxK_aOVzvgfuBjB9W0IHnP6dXajRE7RCLUZ3rRQxHJdB3LCg&_nc_ht=scontent-lax3-1.xx&oh=ed4b76af5e2f65c500af6beb65bfa76f&oe=5ED7547F");
+        mNames.add("2/26");
+        mImageURLs.add("https://scontent-lax3-2.xx.fbcdn.net/v/t1.0-9/83477685_3766901513350009_8857137989386502144_n.jpg?_nc_cat=106&_nc_oc=AQmg-4sFkijbzTg6oTg7gBmAX2SD8rmaK7SPenPfhHl53U9aZUGXV1hulqxFV86MFhU&_nc_ht=scontent-lax3-2.xx&oh=899f58b76082e8489f2229bddc03cd8b&oe=5ED088B8");
+        mNames.add("2/27");
+        mImageURLs.add("https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/84016515_3766901740016653_6261553656001200128_n.jpg?_nc_cat=110&_nc_oc=AQnIZaXpvejdepjE6fO4gDc_J8_Oko3nMlMjqPUrBCHoMnGEq9JyrzRWSvXVDKm3xJc&_nc_ht=scontent-lax3-1.xx&oh=df554f0d3ce598f7fe735956981b5c67&oe=5ED44B0F");
+        mNames.add("2/28");
+        mImageURLs.add("https://scontent-lax3-2.xx.fbcdn.net/v/t1.0-9/83203356_3766902133349947_2349191164944449536_n.jpg?_nc_cat=106&_nc_oc=AQmuVQd0GvwsQO83FuzNLhYvQhZV5wuRKhsomRaicwBNLvCr3s_mK49WHaD1hLw2iTY&_nc_ht=scontent-lax3-2.xx&oh=5e4fcfc51b6a4104a27d846526a20dbf&oe=5ED25B76");
+        mNames.add("2/29");
+
         initHorizontalRecycler();
 
 
