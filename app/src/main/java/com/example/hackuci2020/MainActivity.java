@@ -39,10 +39,7 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: started.");
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 23f19e57ecfd9c80d7b22cdd65c65bd961aa4b6e
         Button createButton = findViewById(R.id.add_event);
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
