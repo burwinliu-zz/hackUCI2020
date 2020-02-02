@@ -105,6 +105,8 @@ public class DBManager {
                         TimeRepresentation end = getTime(cursor1.getInt(cursor1.getColumnIndex(DBHelper.COLUMN_NAME_END_ID)));
                         Location location = getLocation(cursor1.getInt(cursor1.getColumnIndex(DBHelper.COLUMN_NAME_LOCATION_ID)));
                         Log.d("Manager", "IN past");
+                        Log.d("TRUE WORK", Integer.toString(cursor1.getInt(cursor1.getColumnIndex(DBHelper.COLUMN_NAME_TRAVELTYPE))));
+                        Log.d("ARE WE GOING CRAZY", location.getAddr());
                         return new Event(
                                 cursor1.getString(cursor1.getColumnIndex(DBHelper.COLUMN_NAME_TITLE)),
                                 location,
@@ -127,7 +129,12 @@ public class DBManager {
 
     //todo test
     public Location getLocation(int unique_id){
-        String[] columns = { DBHelper.COLUMN_NAME_UNIQUE_LOCATION_ID };
+        String[] columns = {
+                DBHelper.COLUMN_NAME_UNIQUE_LOCATION_ID,
+                DBHelper.COLUMN_NAME_LONGITUDE,
+                DBHelper.COLUMN_NAME_LATITUDE,
+                DBHelper.COLUMN_NAME_ADDRESS
+        };
         String selection = DBHelper.COLUMN_NAME_UNIQUE_LOCATION_ID + " =?";
         String[] selectionArgs = { Integer.toString(unique_id) };
         String limit = "1";
@@ -136,12 +143,16 @@ public class DBManager {
         try {
             cursor = database.query(DBHelper.TABLE_LOCATION, columns, selection,
                     selectionArgs, null, null, null, limit);
-
-            return new Location(
-                    cursor.getFloat(cursor.getColumnIndex(DBHelper.COLUMN_NAME_LONGITUDE)),
-                    cursor.getFloat(cursor.getColumnIndex(DBHelper.COLUMN_NAME_LATITUDE)),
-                    cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_NAME_ADDRESS))
-            );
+            cursor.moveToFirst();
+            for (String s : cursor.getColumnNames())
+                Log.d("Cursor12", s);
+            if (cursor.moveToNext())
+                return new Location(
+                        cursor.getFloat(cursor.getColumnIndex(DBHelper.COLUMN_NAME_LONGITUDE)),
+                        cursor.getFloat(cursor.getColumnIndex(DBHelper.COLUMN_NAME_LATITUDE)),
+                        cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_NAME_ADDRESS))
+                );
+            return null;
         }
         finally{
             if(cursor != null && !cursor.isClosed())
@@ -168,6 +179,9 @@ public class DBManager {
                     selectionArgs, null, null, null, null);
             for(String s: cursor.getColumnNames())
                 Log.d("Cursor", s);
+            cursor.moveToFirst();
+            Log.d("Cursor1", Integer.toString(cursor.getColumnIndex(DBHelper.COLUMN_NAME_MINUTE)));
+            Log.d("Cursor1", Integer.toString(cursor.getInt(2)));
             Log.d("Cursor1", Integer.toString(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_NAME_MINUTE))));
             Log.d("Cursor1", Integer.toString(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_NAME_HOUR))));
             Log.d("Cursor1", Integer.toString(cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_NAME_DAY))));
