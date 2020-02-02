@@ -3,23 +3,13 @@ package com.example.hackuci2020;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.TimePicker;
-import android.widget.Toast;
 
-import com.example.hackuci2020.TimePickerFragment;
-import com.example.hackuci2020.TimeRepresentation;
-
-import java.sql.Array;
-import java.sql.Time;
 import java.util.Calendar;
 
 public class EventActivity extends AppCompatActivity implements TimePickerFragment.OnInputListener {
@@ -50,7 +40,7 @@ public class EventActivity extends AppCompatActivity implements TimePickerFragme
 
         textViews = findViewById(R.id.textViews);
         title = findViewById(R.id.titleInput);
-        description = findViewById(R.id.editText7);
+        description = findViewById(R.id.description);
 
         alert = findViewById(R.id.alert_dropdown);
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(EventActivity.this,
