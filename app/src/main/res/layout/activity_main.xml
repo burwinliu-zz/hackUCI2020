@@ -5,13 +5,14 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/gradient">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recylerview"
-        android:layout_width="401dp"
-        android:layout_height="592dp"
+        android:layout_width="418dp"
+        android:layout_height="612dp"
         android:layout_marginTop="124dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,4 +29,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.926" />
 
+    <Button
+        android:id="@+id/trash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trash-Ass Button"
+        app:layout_constraintBottom_toTopOf="@+id/recylerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -5,7 +5,12 @@
     android:id="@+id/parent_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="15dp">
+    android:background="#00000000"
+    android:foregroundTint="#00008577"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true">
+
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/hour_image"
@@ -16,6 +21,31 @@
         android:src="@drawable/add_event"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/whiterect" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="456dp"
+        android:layout_height="117dp"
+        android:layout_marginStart="100dp"
+        app:layout_constraintBottom_toBottomOf="@id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.659"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/common_google_signin_btn_text_light_normal_background" />
 
     <TextView
         android:id="@id/time"
