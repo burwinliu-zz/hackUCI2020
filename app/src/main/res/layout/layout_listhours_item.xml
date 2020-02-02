@@ -12,15 +12,31 @@
     app:cardUseCompatPadding="true">
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/hour_image"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/add_event"
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.39"
+        app:srcCompat="@drawable/pastelmagenta" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.202"
+        app:srcCompat="@drawable/darkermagenta" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -35,10 +51,11 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="456dp"
-        android:layout_height="117dp"
+        android:layout_width="356dp"
+        android:layout_height="127dp"
         android:layout_marginStart="100dp"
-        app:layout_constraintBottom_toBottomOf="@id/imageView"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.659"
         app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -51,12 +68,22 @@
         android:id="@id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="108dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginLeft="124dp"
+        android:layout_marginTop="56dp"
         android:text="event"
         android:textColor="#000"
         android:textSize="17sp"
         app:layout_constraintLeft_toRightOf="@+id/hour_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/hour_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/add_event"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
