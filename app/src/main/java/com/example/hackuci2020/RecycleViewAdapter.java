@@ -50,17 +50,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         holder.imageName.setText(ImageNames.get(position));
 
         //on click thing hear to open up either fragment or activity showing the event's details
-        holder.parentLayout.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick (View view) {
-                Log.d(TAG, "onClick: clicked on: " + ImageNames.get(position));
 
-                Intent intent = new Intent(mContext, DescriptionActivity.class);
-                intent.putExtra("image_url", Images.get(position));
-                intent.putExtra("image_name", ImageNames.get(position));
-            }
-
-        }));
     }
 
     @Override
