@@ -5,6 +5,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.hackuci2020.TimePickerFragment;
 import com.example.hackuci2020.TimeRepresentation;
+import com.example.hackuci2020.DateTimeInterface;
 
 import java.sql.Array;
 import java.sql.Time;
@@ -66,6 +68,9 @@ public class EventActivity extends AppCompatActivity implements TimePickerFragme
                 TimeRepresentation end = new TimeRepresentation(minute_end, hour_end, day, month, year);
                 Event new_event = new Event(title.getText().toString(), "event_location",
                         0, 0, start, end, description.getText().toString(), 0);
+                DateTimeInterface middle_ground = new DateTimeInterface();
+                middle_ground.inputCalendarEvent(new_event);
+                startActivity(new Intent(EventActivity.this, MainActivity.class));
             }
         });
 

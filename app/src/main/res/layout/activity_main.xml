@@ -8,7 +8,10 @@
     tools:context=".MainActivity"
     android:background="@drawable/gradient">
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a29a05d4b925bf37c22cf1e5101c76024bdf9e74
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recylerview"
         android:layout_width="418dp"
@@ -30,4 +33,7 @@
         app:layout_constraintVertical_bias="0.926" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+<<<<<<< HEAD
 
+=======
+>>>>>>> a29a05d4b925bf37c22cf1e5101c76024bdf9e74
