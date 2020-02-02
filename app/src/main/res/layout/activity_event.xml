@@ -14,16 +14,16 @@
         android:id="@+id/date_selected"
         android:layout_width="175dp"
         android:layout_height="31dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="12dp"
         android:text="@string/no_date"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/time_startSelected"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.838"
+        app:layout_constraintHorizontal_bias="0.786"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/date_Delete"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.13" />
 
     <TextView
         android:id="@+id/time_startSelected"
@@ -59,35 +59,35 @@
 
     <Button
         android:id="@+id/save_button"
-        android:layout_width="197dp"
-        android:layout_height="75dp"
+        android:layout_width="174dp"
+        android:layout_height="68dp"
         android:background="#00FFFFFF"
         android:color="#FFFFFF"
         android:text="@string/click_save"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/back_button"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.942" />
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toEndOf="@+id/back_button"
+        app:layout_constraintTop_toBottomOf="@+id/alert_dropdown" />
 
     <Button
         android:id="@+id/back_button"
-        android:layout_width="199dp"
-        android:layout_height="75dp"
+        android:layout_width="176dp"
+        android:layout_height="64dp"
 
+
+        android:layout_marginStart="28dp"
 
         android:background="#00FFFFFF"
-
         android:backgroundTint="#FFFFFF"
         android:color="#FFFFFF"
         android:text="@string/click_back"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.945" />
+        app:layout_constraintTop_toBottomOf="@+id/alert_dropdown"
+        app:layout_constraintVertical_bias="0.483" />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView2"
@@ -103,43 +103,37 @@
         android:id="@+id/date_Delete"
         android:layout_width="234dp"
         android:layout_height="52dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="121dp"
-        android:layout_marginEnd="77dp"
-        android:layout_marginBottom="558dp"
+        android:layout_marginTop="20dp"
         android:background="#A2DBFF"
         android:text="@string/set_date"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:layout_constraintVertical_bias="0.363" />
 
     <ImageView
         android:id="@+id/save_bg"
-        android:layout_width="187dp"
-        android:layout_height="81dp"
+        android:layout_width="177dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintTop_toBottomOf="@+id/alert_dropdown"
+        app:layout_constraintVertical_bias="0.491"
         app:srcCompat="@drawable/save_button" />
 
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="177dp"
-        android:layout_height="71dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="620dp"
-        android:layout_marginEnd="211dp"
-        android:layout_marginBottom="36dp"
+        android:layout_height="68dp"
         android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/save_bg"
+        app:layout_constraintHorizontal_bias="0.609"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alert_dropdown"
         app:srcCompat="@drawable/back_button" />
 
     <Spinner
@@ -265,15 +259,10 @@
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="63dp"
-        android:layout_height="113dp"
-        android:layout_marginTop="308dp"
-        android:layout_marginBottom="310dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
+        android:layout_height="95dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:srcCompat="@drawable/location_marker" />
 
     <TextView
